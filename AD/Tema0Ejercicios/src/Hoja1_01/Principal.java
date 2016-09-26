@@ -9,7 +9,7 @@
  * Vamos a guardar el objeto Persona en un Arraylist, una vez hecho debemos usar
  * el patron iterator para mostrar los datos
  */
-package Ejercicio1;
+package Hoja1_01;
 
 import Herramientas.Herramientas;
 import java.util.ArrayList;

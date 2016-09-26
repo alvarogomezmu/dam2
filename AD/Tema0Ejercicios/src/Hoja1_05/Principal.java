@@ -4,7 +4,7 @@
  * animales repetidos. Indica que tipo de Collections usarás y realiza el
  * ejemplo.
  */
-package Ejercicio5;
+package Hoja1_05;
 
 import java.util.*;
 import Herramientas.*;

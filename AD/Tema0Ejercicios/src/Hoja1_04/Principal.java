@@ -5,7 +5,7 @@
  * contenido del map mediante el patrón iterator
  *
  */
-package Ejercicio4;
+package Hoja1_04;
 
 import java.util.*;
 

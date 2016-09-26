@@ -5,7 +5,7 @@
  ("Papa", "(55)-9555-3270");("Tienda", "(874)-2400-8600");
  Crear un método  para que contenga el códigio para usar el patron Iterator y mostrar los datos guardados en el map.
  */
-package Ejercicio3;
+package Hoja1_03;
 
 import java.util.*;
 

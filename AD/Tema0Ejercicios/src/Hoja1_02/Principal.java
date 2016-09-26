@@ -5,7 +5,7 @@
  * está que lo añada a la lista y la muestre.
  *
  */
-package Ejercicio2;
+package Hoja1_02;
 
 import java.util.*;
 import Herramientas.*;
