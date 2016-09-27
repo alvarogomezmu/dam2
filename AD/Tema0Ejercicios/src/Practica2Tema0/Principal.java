@@ -31,30 +31,16 @@ public class Principal {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("Resultado de los partidos de futbol: ");
+        System.out.println("Resultado de los partidos de futbol... ");
         ArrayList<PartidoFutbol> partidos = new ArrayList();
 
         partidos.add(new PartidoFutbol("Real Madrid", "Barcelona", 5, 2));
-        partidos.add(new PartidoFutbol("Betis", "Rayo Vallecano", 3, 1));
+        partidos.add(new PartidoFutbol("Betis", "Rayo Vallecano", 3, 3));
         partidos.add(new PartidoFutbol("Sevilla", "Deportivo", 1, 0));
         partidos.add(new PartidoFutbol("Celta", "Atleti", 2, 3));
-        partidos.add(new PartidoFutbol("Barcelona", "Real Madrid", 4, 2));
+        partidos.add(new PartidoFutbol("Barcelona", "Real Madrid", 4, 4));
 
-        Iterator it = partidos.iterator();
-        while (it.hasNext()) {
-            PartidoFutbol partido = (PartidoFutbol) it.next();
-            String texto = "";
-            if (partido.golesLocal == partido.golesVisitante) {
-                texto = partido.equipoLocal + " y " + partido.equipoVisitante + " han empatado a " + Integer.toString(partido.golesLocal);
-            }
-            if (partido.golesLocal > partido.golesVisitante) {
-                texto = partido.equipoLocal + " ha ganado al " + partido.equipoVisitante + " por " + Integer.toString(partido.golesLocal) + " a " + Integer.toString(partido.golesVisitante);
-            }
-            if (partido.golesLocal < partido.golesVisitante) {
-                texto = partido.equipoLocal + " ha perdido frente al " + partido.equipoVisitante + " por " + Integer.toString(partido.golesLocal) + " a " + Integer.toHexString(partido.golesVisitante);
-            }
-            System.out.println(texto);
-        }
+        PartidoFutbol.ganador(partidos);
     }
 
 }

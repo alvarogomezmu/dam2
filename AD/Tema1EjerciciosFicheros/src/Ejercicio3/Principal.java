@@ -25,9 +25,7 @@ public class Principal {
         // TODO code application logic here
         BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
         RandomAccessFile fsalida = new RandomAccessFile("ejercicio6", "rw");
-        for (int i=0; i<6; i++){
-            System.out.println("");
-            System.out.println("");
+        for (int i = 0; i < 6; i++) {
             System.out.println("");
         }
     }
