@@ -14,7 +14,7 @@
  * que en éste caso si tienes que recorrer la estructura (iterator) debes usar
  * el método y si es necesario adaptarlo a tus necesidades.
  */
-package Practica2Tema0;
+package Practica2_Tema0_Ejercicio2;
 
 import java.util.ArrayList;
 import Herramientas.*;
