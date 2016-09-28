@@ -28,18 +28,20 @@ public class Principal {
             System.out.println("Escribe el nombre de una asignatura: ");
             fsalida.writeUTF(Herramientas.ConvertUTF(teclado.readLine(), 20));
             fsalida.writeInt(Integer.BYTES);
+
         }
         fsalida.close();
         fsalida.close();
         teclado.close();
         teclado.close();
+        
         RandomAccessFile fentrada = new RandomAccessFile("ejemplo2", "r");
         for (int i = 0; i < 1; i++) {
             // Siempre hay que aniadir +2bytes de cabecera
             fentrada.seek(i * 22);
             String nombre = fentrada.readUTF();
             Integer nota = fentrada.readInt();
-            System.out.println("\nLa asignatura introducida es:"+ nombre+nota);
+            System.out.println("\nLa asignatura introducida es:" + nombre + nota);
         }
         fentrada.close();
     }

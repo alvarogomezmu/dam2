@@ -30,12 +30,15 @@ public class Principal {
         fsalida.close();
         teclado.close();
         RandomAccessFile fentrada = new RandomAccessFile("ruta", "r");
+        System.out.println("\nLos nombres que ha introducido son:");
+
         for (int i = 0; i < 4; i++) {
             // Siempre hay que aniadir +2bytes de cabecera
             fentrada.seek(i * 22);
             String nombre = fentrada.readUTF();
             System.out.println(nombre);
         }
+
         fentrada.close();
     }
 

@@ -52,7 +52,15 @@ public class Principal {
         map2.put("93819832C", profe5);
         map2.put("56411501C", profe6);
 
-        System.out.println("Datos de los profesores repetidos: \n");
+        System.out.println("Los profesores son:");
+        System.out.println("Nombre:"+profe1.nombre+" Edad:"+profe1.edad+" Titulacion:"+profe1.titulacion);
+        System.out.println("Nombre:"+profe2.nombre+" Edad:"+profe2.edad+" Titulacion:"+profe2.titulacion);
+        System.out.println("Nombre:"+profe3.nombre+" Edad:"+profe3.edad+" Titulacion:"+profe3.titulacion);
+        System.out.println("Nombre:"+profe4.nombre+" Edad:"+profe4.edad+" Titulacion:"+profe4.titulacion);
+        System.out.println("Nombre:"+profe5.nombre+" Edad:"+profe5.edad+" Titulacion:"+profe5.titulacion);
+        System.out.println("Nombre:"+profe6.nombre+" Edad:"+profe6.edad+" Titulacion:"+profe6.titulacion);
+        
+        System.out.println("\n\nDatos de los profesores repetidos:");
         Profesor.comparaProfes(map1, map2);
     }
 

@@ -7,6 +7,11 @@
  */
 package Ejercicio7;
 
+import Herramientas.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  *
  * @author AlumnoT
@@ -20,5 +25,4 @@ public class Principal {
         // TODO code application logic here
         
     }
-
 }

@@ -6,6 +6,11 @@
  */
 package Ejercicio6;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import Herramientas.*;
+
 /**
  *
  * @author AlumnoT
@@ -17,6 +22,16 @@ public class Principal {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        try {
+            BufferedReader fl = new BufferedReader(new FileReader("ejercicio6.txt"));
+
+            while (fl.ready()) {
+                System.out.println(fl.readLine());
+            }
+            fl.close();
+        } catch (IOException e) {
+            System.out.println("error");
+        }
     }
 
 }
