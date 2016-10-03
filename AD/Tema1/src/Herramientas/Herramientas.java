@@ -225,4 +225,27 @@ public class Herramientas {
         }
     }
 
+    // metodo para escribir (serializar)
+    public static void escribirArchivo(ObjectOutputStream esc, Object o) throws IOException {
+        esc.writeObject(o);
+    }
+
+    //metodo para leer (deserializar)
+    public static void leerArchivo(ObjectInputStream lec) throws IOException, ClassNotFoundException {
+        Object c = null;
+        try {
+            while (true) {
+                c = (Object) lec.readObject();
+                System.out.println(c.toString());
+            }
+        } catch (EOFException ex) {
+            System.out.println("\nTordo bien");
+
+        } finally {
+            if (lec != null) {
+                lec.close();
+            }
+        }
+    }
+
 }

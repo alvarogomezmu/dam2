@@ -27,7 +27,7 @@ public class Principal {
 
         {
             try {
-                RandomAccessFile raf = new RandomAccessFile("C:\\Users\\Alvaro\\Documents\\empleado.txt", "rw");
+                RandomAccessFile raf = new RandomAccessFile("C:\\Users\\AlumnoT\\Documents\\empleado.txt", "rw");
 
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -45,7 +45,7 @@ public class Principal {
             }
 
             try {
-                RandomAccessFile raf = new RandomAccessFile("C:\\Users\\Alvaro\\Documents\\empleado.txt", "r");
+                RandomAccessFile raf = new RandomAccessFile("C:\\Users\\AlumnoT\\Documents\\empleado.txt", "r");
 
                 //lee todo el fichero
                 for (int i = 0; i < 5; i++) {
