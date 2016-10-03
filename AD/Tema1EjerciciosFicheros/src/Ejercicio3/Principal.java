@@ -1,9 +1,9 @@
 /**
- * Ejercicio3. Crear un fichero aleatorio pidiendo POR TECLADO Codigo, nombre, sueldo de los empleados en total nos tiene que pedir 5.
- * El fichero aleatorio se llamará empleado.txt .Una vez lo tengamos creado tenemos que mostrar:
- *      todos los datos introducidos
- *      El último dato introducido.
- *      El primero y el tercero dato que hayáis escrito
+ * Ejercicio3. Crear un fichero aleatorio pidiendo POR TECLADO Codigo, nombre,
+ * sueldo de los empleados en total nos tiene que pedir 5. El fichero aleatorio
+ * se llamará empleado.txt .Una vez lo tengamos creado tenemos que mostrar:
+ * todos los datos introducidos El último dato introducido. El primero y el
+ * tercero dato que hayáis escrito
  */
 package Ejercicio3;
 
@@ -24,37 +24,73 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        // TODO code application logic here
-        // TODO code application logic here
-        BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
-        RandomAccessFile fsalida = new RandomAccessFile("empleado", "rw");
-        for (int n = 0; n < 5; n++) {
-            System.out.println("Escribe un nombre: ");
-            fsalida.writeUTF(Herramientas.ConvertUTF(teclado.readLine(), 20));
-            
-            System.out.println("Numerito");
-            fsalida.writeInt(teclado.read());
-        }
-        fsalida.close();
-        fsalida.close();
-        
-        teclado.close();
-        teclado.close();
-        RandomAccessFile fentrada = new RandomAccessFile("empleado", "r");
-        System.out.println("\nLos nombres que ha introducido son:");
 
-        for (int i = 0; i < 4; i++) {
-            // Siempre hay que aniadir +2bytes de cabecera
-            fentrada.seek(i * 22);
-            String nombre = fentrada.readUTF();
-            System.out.println(nombre);
-            
-            fentrada.seek(i * 22);
-            Integer numero = fentrada.readInt();
-            System.out.println(numero);
-        }
+        {
+            try {
+                RandomAccessFile raf = new RandomAccessFile("C:\\Users\\Alvaro\\Documents\\empleado.txt", "rw");
 
-        fentrada.close();
-        fentrada.close();
+                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+                for (int i = 0; i < 5; i++) {
+                    System.out.println("Codigo: ");
+                    raf.writeInt(Integer.parseInt(br.readLine()));
+                    System.out.println("Nombre: ");
+                    raf.writeUTF(Herramientas.ConvertUTF(br.readLine(), 20));
+                    System.out.println("Sueldo: ");
+                    raf.writeDouble(Double.parseDouble(br.readLine()));
+                }
+                raf.close();
+            } catch (Exception ex) {
+                System.err.println("Error");
+            }
+
+            try {
+                RandomAccessFile raf = new RandomAccessFile("C:\\Users\\Alvaro\\Documents\\empleado.txt", "r");
+
+                //lee todo el fichero
+                for (int i = 0; i < 5; i++) {
+                    raf.seek(i * 34);
+
+                    int codigo = raf.readInt();
+                    String nombre = raf.readUTF();
+                    double sueldo = raf.readDouble();
+
+                    System.out.println(codigo + " " + nombre + " " + sueldo);
+                }
+
+                System.out.println("\n====================================\n");
+
+                // lectura  del ultimo, primer y tercer registro introducido
+                // ultimo
+                raf.seek(4 * 34);
+                int codigo = raf.readInt();
+                String nombre = raf.readUTF();
+                double sueldo = raf.readDouble();
+
+                System.out.println("Ultimo dato introducido: " + codigo + " " + nombre + " " + sueldo);
+
+                // primero
+                raf.seek(0 * 34);
+
+                codigo = raf.readInt();
+                nombre = raf.readUTF();
+                sueldo = raf.readDouble();
+
+                System.out.println("Primer dato introducido: " + codigo + " " + nombre + " " + sueldo);
+
+                // tercero
+                raf.seek(2 * 34);
+
+                codigo = raf.readInt();
+                nombre = raf.readUTF();
+                sueldo = raf.readDouble();
+
+                System.out.println("Tercer dato introducio: " + codigo + " " + nombre + " " + sueldo);
+
+                raf.close();
+            } catch (Exception ex) {
+                System.err.println("Error");
+            }
+        }
     }
 }

@@ -1,0 +1,47 @@
+package Herramientas2;
+
+import java.util.*;
+import java.io.*;
+
+public class herramientas {
+
+//recorrer
+    public static void recorrerColeccion(Collection c) {
+        Iterator it = c.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
+    }
+
+//Escribir fichero
+public static void escribirFichero(String loc, int veces) {
+
+        try {
+            String ruta = loc;
+            BufferedWriter escribir = new BufferedWriter(new FileWriter(ruta, true));
+            BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+            for (int i = 0; i < veces; i++) {
+                System.out.println("Escribe:");
+
+                escribir.write(teclado.readLine());
+                escribir.newLine();
+            }
+            escribir.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+//leer
+public static void leerFichero(String loc) {
+
+        String ruta = loc;
+        try (BufferedReader d = new BufferedReader(new FileReader(ruta))) {
+
+            while (d.ready()) {
+                System.out.println(d.readLine());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }

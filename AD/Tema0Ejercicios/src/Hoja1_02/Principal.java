@@ -50,15 +50,16 @@ public class Principal {
     public static void main(String[] args) {
 
         // Creamos la lista
-        ArrayList lista = new ArrayList();
+        ArrayList<Persona> lista = new ArrayList();
 
-        // Aniadimos datos a la lista
-        lista.add("Perro");
-        lista.add("Gato");
-        lista.add("Tigre");
-        lista.add("Perro");
-        lista.add("Leon");
-        lista.add("Gato");
+        Persona per1 = new Persona("rut1", "persona1");
+        Persona per2 = new Persona("rut2", "persona2");
+        Persona per3 = new Persona("rut3", "persona3");
+
+// Aniadimos datos a la lista
+        lista.add(per1);
+        lista.add(per2);
+        lista.add(per3);
 
         // llamamos al metodo para comprobar
         buscarDuplicados(lista);
