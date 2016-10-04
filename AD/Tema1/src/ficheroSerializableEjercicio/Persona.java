@@ -12,13 +12,13 @@ import java.util.*;
  *
  * @author AlumnoT
  */
-public class Alumno implements Serializable {
+public class Persona implements Serializable {
 
     public String nombre;
     public Integer codigo;
     public Integer nota;
 
-    public Alumno(String nombre, Integer codigo, Integer nota) {
+    public Persona(String nombre, Integer codigo, Integer nota) {
         this.nombre = nombre;
         this.codigo = codigo;
         this.nota = nota;
