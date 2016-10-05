@@ -25,7 +25,7 @@ public class Principal {
         String linea;
         try {
             // Se almacenan las lineas mientras haya lineas
-            while ((linea = BufferedReader.readLine()) != null) {
+            while (linea = BufferedReader.readLine() != null) {
                 // Declaracion de StringTokenizer para la linea almacenada
                 // con el token !
                 StringTokenizer tok = new StringTokenizer(linea, "!");
