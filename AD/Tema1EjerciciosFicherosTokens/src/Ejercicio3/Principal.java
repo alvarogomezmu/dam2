@@ -22,26 +22,26 @@ import java.io.*;
 public class Principal {
 
     public static void main(String[] args) {
-        try {
-            BufferedReader leer = new BufferedReader(new FileReader("C:\\Users\\Alvaro\\Documents\\strings.txt"));
-            String linea;
-            int count = 0;
+        try{
+            String cadena=" ", palabra=" ";
+            int contador=0;
+            BufferedReader br2 = new BufferedReader(new FileReader("strings.txt"));
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-            while ((linea = leer.readLine()) != null) {
-                StringTokenizer st = new StringTokenizer(linea, "#");
-                StringTokenizer st2 = new StringTokenizer(linea, "#");
-
-                String token = st2.nextToken();
-
-                while (st.hasMoreTokens()) {
-                    if (token.equals(st.nextToken())) {
-                        count++;
-                    }
-                }
+            System.out.print("Palabra a buscar: ");
+            palabra=br.readLine();
+            
+            while((cadena=br2.readLine())!=null){
+                StringTokenizer st = new StringTokenizer(cadena,"#");
+                while(st.hasMoreElements()){
+                    if(palabra.compareTo((String)st.nextToken())==0)
+                        contador++;
+                }                
             }
-            System.out.println("El valor se repite " + count + " veces");
-        } catch (IOException e) {
-            System.out.println("Error: " + e);
+            System.out.println("Numero de coincidencias: "+contador);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
         }
     }
+    
 }

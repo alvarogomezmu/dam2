@@ -24,7 +24,7 @@ public class Principal {
 
         try {
 
-            BufferedReader fich = new BufferedReader(new FileReader("C:\\Users\\Alvaro\\Documents\\Productos.txt"));
+            BufferedReader fich = new BufferedReader(new FileReader("Productos.txt"));
 
             String linea = null;
             System.out.println("");

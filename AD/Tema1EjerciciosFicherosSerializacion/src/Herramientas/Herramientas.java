@@ -258,5 +258,4 @@ public class Herramientas {
         System.out.println("El objeto es: " + obj);
         entrada.close();
     }
-
 }

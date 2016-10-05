@@ -24,7 +24,7 @@ public class Principal {
     public static void main(String[] args) {
         try {
             ArrayList nombres = new ArrayList();
-            RandomAccessFile fich = new RandomAccessFile("C:\\Users\\Alvaro\\Documents\\info.txt", "rw");
+            RandomAccessFile fich = new RandomAccessFile("info.txt", "rw");
             BufferedReader sc = new BufferedReader(new InputStreamReader(System.in));
             for (int i = 0; i < 4; i++) {
                 System.out.println("Nombre: ");
@@ -32,7 +32,7 @@ public class Principal {
             }
             fich.close();
 
-            fich = new RandomAccessFile("C:\\Users\\Alvaro\\Documents\\info.txt", "r");
+            fich = new RandomAccessFile("info.txt", "r");
             //Se introducen los datos en el arraylist
             System.out.println("SIN MODIFICAR");
 
@@ -48,7 +48,7 @@ public class Principal {
             //SE borra un elemento
             nombres.remove(2);
 
-            fich = new RandomAccessFile("C:\\Users\\Alvaro\\Documents\\info.txt", "rw");
+            fich = new RandomAccessFile("info.txt", "rw");
             //Se sobreescribe el fichero
             Iterator it = nombres.iterator();
             while (it.hasNext()) {
@@ -56,7 +56,7 @@ public class Principal {
             }
             fich.close();
 
-            fich = new RandomAccessFile("C:\\Users\\Alvaro\\Documents\\info.txt", "r");
+            fich = new RandomAccessFile("info.txt", "r");
             System.out.println("MODIFICADO");
 
             for (int i = 0; i < nombres.size(); i++) {

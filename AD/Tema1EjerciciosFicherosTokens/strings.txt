@@ -1,0 +1,3 @@
+casa#perro#mono
+#aguila#perro#gorila
+#camion#chimpance#perro

@@ -23,74 +23,41 @@ public class Principal {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws FileNotFoundException, IOException {
-
-        {
-            try {
-                RandomAccessFile raf = new RandomAccessFile("C:\\Users\\AlumnoT\\Documents\\empleado.txt", "rw");
-
-                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-                for (int i = 0; i < 5; i++) {
-                    System.out.println("Codigo: ");
-                    raf.writeInt(Integer.parseInt(br.readLine()));
-                    System.out.println("Nombre: ");
-                    raf.writeUTF(Herramientas.ConvertUTF(br.readLine(), 20));
-                    System.out.println("Sueldo: ");
-                    raf.writeDouble(Double.parseDouble(br.readLine()));
-                }
-                raf.close();
-            } catch (Exception ex) {
-                System.err.println("Error");
+    public static void main(String[] args) {
+        try{
+            RandomAccessFile fleer=new RandomAccessFile("a2.txt","r");
+            for(int i=0;i<5;i++)
+            {
+               fleer.seek(i*30);
+               int codigo=fleer.readInt();
+               String nombre=fleer.readUTF();
+               int sueldo=fleer.readInt();
+               System.out.println("Codigo: "+codigo+" Nombre: "+ nombre + "Sueldo: "+sueldo);
             }
-
-            try {
-                RandomAccessFile raf = new RandomAccessFile("C:\\Users\\AlumnoT\\Documents\\empleado.txt", "r");
-
-                //lee todo el fichero
-                for (int i = 0; i < 5; i++) {
-                    raf.seek(i * 34);
-
-                    int codigo = raf.readInt();
-                    String nombre = raf.readUTF();
-                    double sueldo = raf.readDouble();
-
-                    System.out.println(codigo + " " + nombre + " " + sueldo);
-                }
-
-                System.out.println("\n====================================\n");
-
-                // lectura  del ultimo, primer y tercer registro introducido
-                // ultimo
-                raf.seek(4 * 34);
-                int codigo = raf.readInt();
-                String nombre = raf.readUTF();
-                double sueldo = raf.readDouble();
-
-                System.out.println("Ultimo dato introducido: " + codigo + " " + nombre + " " + sueldo);
-
-                // primero
-                raf.seek(0 * 34);
-
-                codigo = raf.readInt();
-                nombre = raf.readUTF();
-                sueldo = raf.readDouble();
-
-                System.out.println("Primer dato introducido: " + codigo + " " + nombre + " " + sueldo);
-
-                // tercero
-                raf.seek(2 * 34);
-
-                codigo = raf.readInt();
-                nombre = raf.readUTF();
-                sueldo = raf.readDouble();
-
-                System.out.println("Tercer dato introducio: " + codigo + " " + nombre + " " + sueldo);
-
-                raf.close();
-            } catch (Exception ex) {
-                System.err.println("Error");
-            }
+            
+            fleer.seek(4*30);
+            int codigo=fleer.readInt();
+            String nombre=fleer.readUTF();
+            int sueldo=fleer.readInt();
+            System.out.println("Codigo: "+codigo+" Nombre: "+ nombre + "Sueldo: "+sueldo);
+            
+            fleer.seek(0*30);
+            int codigo1=fleer.readInt();
+            String nombre1=fleer.readUTF();
+            int sueldo1=fleer.readInt();
+            System.out.println("Codigo: "+codigo1+" Nombre: "+ nombre1 + "Sueldo: "+sueldo1);
+            
+            fleer.seek(2*30);
+            int codigo2=fleer.readInt();
+            String nombre2=fleer.readUTF();
+            int sueldo2=fleer.readInt();
+            System.out.println("Codigo: "+codigo2+" Nombre: "+ nombre2 + "Sueldo: "+sueldo2);
+            
+            fleer.close();
+           
+        }catch(IOException e){
+        e.printStackTrace();
+        }
         }
     }
-}
+    
