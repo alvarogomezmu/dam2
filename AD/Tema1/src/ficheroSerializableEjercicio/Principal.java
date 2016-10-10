@@ -28,14 +28,14 @@ public class Principal {
 
         // Stream para escribir
         ObjectOutputStream escribir = new ObjectOutputStream(new FileOutputStream("fichero.dat"));
-        Herramientas.escribirArchivo(escribir, p1);
-        Herramientas.escribirArchivo(escribir, p2);
-        Herramientas.escribirArchivo(escribir, p3);
-        Herramientas.escribirArchivo(escribir, p5);
+        Herramientas.escribirObjetos(escribir, p1);
+        Herramientas.escribirObjetos(escribir, p2);
+        Herramientas.escribirObjetos(escribir, p3);
+        Herramientas.escribirObjetos(escribir, p5);
      
         
         ObjectInputStream leer = new ObjectInputStream(new FileInputStream("fichero.dat"));
-        Herramientas.leerArchivo(leer);
+        Herramientas.leerObjetos(leer);
         
     }
 }
