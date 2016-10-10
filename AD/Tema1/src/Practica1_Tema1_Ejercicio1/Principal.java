@@ -20,6 +20,14 @@
  */
 package Practica1_Tema1_Ejercicio1;
 
+import Herramientas.*;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 /**
  *
  * @author Alvaro
@@ -29,8 +37,28 @@ public class Principal {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws IOException {
+        // Cogemos la ruta donde se almacena el fichero
+        Path path = Paths.get("contactos.obj");
+        
+        // Si existe, se muestra, sino, lo creamos
+        if (Files.exists(path)) {
+            try {
+                // Cogemos la ruta
+                ObjectInputStream ois = new ObjectInputStream(new FileInputStream("FichInfoCurso.txt    "));
+                // La leemos
+                Herramientas.leerMap(ois);
+            } catch (ClassNotFoundException c) {
+                System.out.println("Error tipo ClassNotFoundException: " + c);
+            } catch (IOException e) {
+                System.out.println("Error tipo IOException: " + e);
+            }
+        } else {
+            // Creamos 3 personas
+//            Contacto con1 = new Contacto();
+//            Contacto con2 = new Contacto();
+//            Contacto con3 = new Contacto();
     }
 
+}
 }
