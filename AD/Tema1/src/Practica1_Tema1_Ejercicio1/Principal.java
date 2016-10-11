@@ -21,12 +21,17 @@
 package Practica1_Tema1_Ejercicio1;
 
 import Herramientas.*;
+import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.*;
 
 /**
  *
@@ -37,28 +42,54 @@ public class Principal {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException {
-        // Cogemos la ruta donde se almacena el fichero
-        Path path = Paths.get("contactos.obj");
-        
-        // Si existe, se muestra, sino, lo creamos
-        if (Files.exists(path)) {
-            try {
-                // Cogemos la ruta
-                ObjectInputStream ois = new ObjectInputStream(new FileInputStream("FichInfoCurso.txt    "));
-                // La leemos
-                Herramientas.leerMap(ois);
-            } catch (ClassNotFoundException c) {
-                System.out.println("Error tipo ClassNotFoundException: " + c);
-            } catch (IOException e) {
-                System.out.println("Error tipo IOException: " + e);
-            }
-        } else {
-            // Creamos 3 personas
-//            Contacto con1 = new Contacto();
-//            Contacto con2 = new Contacto();
-//            Contacto con3 = new Contacto();
-    }
+    public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int opc = 0;
+        String nombre = null;
+        int duracion = 0;
 
+        Map<String, Curso> curso = new HashMap();
+
+        System.out.println("Creando curso...");
+        System.out.println("Nombre del curso:");
+        nombre = br.readLine();
+        System.out.println("Duracion: ");
+        duracion = Integer.parseInt(br.readLine());
+
+        Curso cur1 = new Curso(nombre, duracion);
+        curso.put("01", cur1);
+
+        ObjectOutputStream scrb = new ObjectOutputStream(new FileOutputStream("FichInfoCurso.txt"));
+        Herramientas.escribirMap(scrb, curso);
+
+        do {
+            System.out.println("Menu");
+            System.out.println("1.-Numerar cursos");
+            System.out.println("2.-Media");
+            System.out.println("3.-Duracion");
+            System.out.println("4.-Salir");
+            System.out.println("Opcion: ");
+            opc = Integer.parseInt(br.readLine());
+            switch (opc) {
+                case 1:
+                    ObjectInputStream lec = new ObjectInputStream(new FileInputStream("FichInfoCurso.txt"));
+                    Herramientas.leerMap(lec);
+                    break;
+
+                case 2:
+                    System.out.println("sfgsdf");
+                    break;
+
+                case 3:
+                    System.out.println("sdfdsf");
+                    break;
+                case 4:
+                    System.out.println("Salir.");
+                    break;
+            }
+        }while (opc != 4);
+    }
 }
-}
+            
+        
+    
