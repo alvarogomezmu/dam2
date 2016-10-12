@@ -1,14 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Practica1_Tema1_Ejercicio2;
 
 import Herramientas.Herramientas;
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.RandomAccessFile;
 
 /**
@@ -47,40 +47,160 @@ public class Metodos {
      * @throws IOException
      */
     public static void crearPeliculas(BufferedReader teclado, String ruta, int numeroPeliculas, int maximo) throws IOException {
-        // Varaible para escribir en el fichero
+        FileOutputStream fos = null;
+        ObjectOutputStream salida = null;
+        Pelicula p;
 
-        RandomAccessFile raf = new RandomAccessFile(ruta, "rw");
-        // Pedimos los datos y los introducimos en el fichero
-        for (int i = 0; i < numeroPeliculas; i++) {
-            System.out.println(i);
-            System.out.println("Introduce el titulo: ");
-            raf.writeUTF(Herramientas.ConvertUTF(teclado.readLine(), maximo));
-            System.out.println("Introduce el precio: ");
-            raf.writeUTF(Herramientas.ConvertUTF(teclado.readLine(), maximo));
+        try {
+            //Se crea el fichero
+            fos = new FileOutputStream(ruta);
+            salida = new ObjectOutputStream(fos);
 
+            // Pedimos los datos y los introducimos en el fichero
+            for (int i = 0; i < numeroPeliculas; i++) {
+                String titulo;
+                Double precio;
+                System.out.println(i);
+                System.out.println("Introduce el titulo: ");
+                titulo = Herramientas.ConvertUTF(teclado.readLine(), maximo);
+
+                System.out.println("Introduce el precio: ");
+                precio = Double.valueOf(teclado.readLine());
+
+                p = new Pelicula(titulo, precio);
+                salida.writeObject(p);
+
+            }
+            // cerramos el fichero
+        } catch (FileNotFoundException e) {
+            System.out.println("1" + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("2" + e.getMessage());
+        } finally {
+            try {
+                if (fos != null) {
+                    fos.close();
+                }
+                if (salida != null) {
+                    salida.close();
+                }
+            } catch (IOException e) {
+                System.out.println("3" + e.getMessage());
+            }
         }
-        // cerramos el fichero
-        raf.close();
     }
 
     /**
-     * Metodo para mostrar la ultima pelicula introducida
+     * Metodo para mostrar todas las peliculas
      *
      * @param ruta
+     * @param numeroPeliculas
      * @throws IOException
      */
-    public static void mostrarUltimaPelicula(String ruta) throws IOException {
-        // Variable para leer el fichero
-        RandomAccessFile raf = new RandomAccessFile(ruta, "rw");
+    public static void mostrarTodas(String ruta, int numeroPeliculas) throws IOException {
+        FileInputStream fis = null;
+        ObjectInputStream entrada = null;
+        Pelicula p;
 
-        // Ponemos el puntero en la ultima posicion
-        raf.seek(22 * 4);
+        try {
 
-        // mostramos los datos
-        System.out.println("La ultima pelicula introducida es: Titulo:" + raf.readUTF() + " Precio: " + raf.readDouble());
+            fis = new FileInputStream(ruta);
+            entrada = new ObjectInputStream(fis);
+            for (int i = 0; i < numeroPeliculas; i++) {
+                p = (Pelicula) entrada.readObject(); //es necesario el casting
+                System.out.println(p.getTitulo() + " " + p.getPrecio());
+            }
 
-        // cerramos el fichero
-        raf.close();
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (ClassNotFoundException | IOException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (fis != null) {
+                    fis.close();
+                }
+                if (entrada != null) {
+                    entrada.close();
+                }
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    /**
+     * Metodo para mostrar la ultima pelicula
+     *
+     * @param ruta
+     * @param numeroPeliculas
+     */
+    public static void mostrarUltimaPelicula(String ruta, int numeroPeliculas) {
+        FileInputStream fis = null;
+        ObjectInputStream entrada = null;
+        Pelicula p;
+
+        try {
+
+            fis = new FileInputStream(ruta);
+            entrada = new ObjectInputStream(fis);
+            for (int i = 0; i < numeroPeliculas; i++) {
+                p = (Pelicula) entrada.readObject(); //es necesario el casting
+                if (i == numeroPeliculas - 1) {
+
+                    System.out.println(p.getTitulo() + " " + p.getPrecio());
+                }
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (ClassNotFoundException | IOException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (fis != null) {
+                    fis.close();
+                }
+                if (entrada != null) {
+                    entrada.close();
+                }
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
+    public static void mostrarPeliculaPedida(String ruta, int numeroPeliculas, int posicion) {
+        FileInputStream fis = null;
+        ObjectInputStream entrada = null;
+        Pelicula p = null;
+
+        try {
+
+            fis = new FileInputStream(ruta);
+            entrada = new ObjectInputStream(fis);
+
+            for (int i = 0; i <= posicion - 1; i++) {
+                p = (Pelicula) entrada.readObject(); //es necesario el casting
+            }
+            System.out.println(p.getTitulo() + " " + p.getPrecio());
+
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (ClassNotFoundException | IOException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (fis != null) {
+                    fis.close();
+                }
+                if (entrada != null) {
+                    entrada.close();
+                }
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     /**
@@ -88,9 +208,10 @@ public class Metodos {
      */
     public static void mostrarMenu() {
         System.out.println("Elige una opcion:\n"
-                + "a) Mostrar los datos de la última película introducido\n"
+                + "a) Mostrar los datos de la última película introducido.\n"
                 + "b) Mostrar los datos de una posición que un usuario pida por teclado.\n"
-                + "c) Mostrar los datos de todas las películas que disponemos");
+                + "c) Mostrar los datos de todas las películas que disponemos.\n"
+                + "f) Finalizar.");
     }
 
     /**
@@ -102,6 +223,19 @@ public class Metodos {
      */
     public static String pedirOpcion(BufferedReader teclado) throws IOException {
         System.out.println("Tu opcion: ");
-        return teclado.readLine();
+        return teclado.readLine().toUpperCase();
+    }
+
+    public static void setPeliculaDatos(Pelicula p) throws IOException {
+        // Creamos un escaner para permitir al usuario introducir datos
+        BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+        // Pedimos al usuario que meta los datos de la persona
+        System.out.print("Introduce una posicion para ver los datos: ");
+
+        System.out.print("El titulo de la pelicula es: ");
+        p.setTitulo(teclado.readLine());
+        System.out.print("El precio de la pelicula es: ");
+        p.setTitulo(teclado.readLine());
+
     }
 }

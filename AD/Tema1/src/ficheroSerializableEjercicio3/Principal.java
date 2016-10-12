@@ -1,8 +1,8 @@
 /**
- * Crear una clase contacto con dni, nombre, apellido y edad.
- * Vamos a guardar 4 contactos en una estructura que admita repetidos.
- * Dicha estructura será serializada en un fichero.
- * Una vez serializado leer contenido del fichero para mostrarlo por pantalla.
+ * Crear una clase contacto con dni, nombre, apellido y edad. Vamos a guardar 4
+ * contactos en una estructura que admita repetidos. Dicha estructura será
+ * serializada en un fichero. Una vez serializado leer contenido del fichero
+ * para mostrarlo por pantalla.
  */
 package ficheroSerializableEjercicio3;
 
@@ -28,13 +28,13 @@ public class Principal {
      */
     public static void main(String[] args) throws IOException {
         // Cogemos la ruta donde se almacena el fichero
-        Path path = Paths.get("C:\\Users\\Alumnot\\Documents\\contactos.obj");
+        Path path = Paths.get("contactos.obj");
 
         // Si existe, se muestra, sino, lo creamos
         if (Files.exists(path)) {
             try {
                 // Cogemos la ruta
-                ObjectInputStream ois = new ObjectInputStream(new FileInputStream("C:\\Users\\Alumnot\\Documents\\contactos.obj"));
+                ObjectInputStream ois = new ObjectInputStream(new FileInputStream("contactos.obj"));
                 // La leemos
                 Herramientas.leerMap(ois);
             } catch (ClassNotFoundException c) {
@@ -62,7 +62,7 @@ public class Principal {
                 map.put(con2.getDni(), con2);
                 map.put(con3.getDni(), con3);
 
-                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("C:\\Users\\Alumnot\\Documents\\contactos.obj"));
+                ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("contactos.obj"));
 
                 Herramientas.escribirMap(oos, map);
             } catch (IOException e) {

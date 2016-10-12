@@ -1,10 +1,12 @@
 package Practica1_Tema1_Ejercicio1;
 
+import java.io.Serializable;
+
 /**
  *
  * @author AlumnoT
  */
-public class Curso {
+public class Curso implements Serializable{
 
     String nombre;
     Integer duracion;

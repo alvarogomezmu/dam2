@@ -14,8 +14,11 @@
 package Practica1_Tema1_Ejercicio2;
 
 import java.io.BufferedReader;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectOutputStream;
+import java.util.Scanner;
 
 /**
  *
@@ -37,12 +40,12 @@ public class Principal {
         int maximo = 20;
 
         // Variable para declarar la opcion introducida por teclado por el usuario
-        String opcion = null;
+        String opcion;
 
         // Direccion donde se creara y se leera el fichero
-        String ruta = "FichinfoPeliculas.txt";
+        String ruta = "FichinfoPeliculas.dat";
 
-        // creamos los libros
+        // creamos las peliculas
         Metodos.crearPeliculas(teclado, ruta, numeroPeliculas, maximo);
 
         // mostramos la lista
@@ -55,12 +58,23 @@ public class Principal {
         while (!opcion.equals("F")) {
             switch (opcion) {
                 case "A":
-                    Metodos.mostrarUltimaPelicula(ruta);
+                    Metodos.mostrarUltimaPelicula(ruta, numeroPeliculas);
+                    
                     break;
                 case "B":
+                    int posicion;
+                    do {
+                        System.out.println("Introduzca una posicion del 1 al "+Integer.toString(numeroPeliculas) +" para mostrar los datos de la pelicula correspondiente: ");
+                        Scanner sc = new Scanner(System.in);
+                        posicion = sc.nextInt();
+                    } while (posicion < 1 || posicion > numeroPeliculas-1);
+
+                    Metodos.mostrarPeliculaPedida(ruta, numeroPeliculas, posicion);
                     break;
                 case "C":
+                    Metodos.mostrarTodas(ruta, numeroPeliculas);
                     break;
+                
                 default:
                     System.out.println("\nOpcion no valida, vuelva a intentarlo\n");
                     break;
@@ -72,9 +86,4 @@ public class Principal {
             opcion = Metodos.pedirOpcion(teclado);
         }
     }
-} 
-
-/**
- * 
- * 
- */
+}

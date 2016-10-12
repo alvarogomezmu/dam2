@@ -3,15 +3,15 @@
  * para poder trabajar con los distintos ficheros que hemos visto. Crear un
  * fichero llamado FichInfoCurso.txt en dicho fichero debemos guardar los datos
  * que previamente habremos pedido por teclado y que habremos guardado en un
- * Hasmap.
+ * Hashmap.
  *
  * Los datos son CodigoCurso, Curso <nombre, duracion>
  *
- * Para poder hacer el menú las acciones irán en métodos y siempre haremos las
- * operaciones sobre el fichero nunca sobre el hashmap
+ * Para poder hacer el menú, las acciones irán en métodos y siempre haremos las
+ * operaciones sobre el fichero. NUNCA sobre el hashmap
  *
  * a) Nos muestre Todos los Cursos y su duración que hemos almacenado en nuestro
- * fichero FichInfoCurso.txt 1.
+ * fichero FichInfoCurso.txt
  *
  * b) Nos haga la media de la duracion.
  *
@@ -41,55 +41,49 @@ public class Principal {
 
     /**
      * @param args the command line arguments
+     * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int opc = 0;
-        String nombre = null;
-        int duracion = 0;
+        // metodo para leer por teclado
+        BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
+        
+        String nombreFichero = "FichInfoCurso.txt";
+        // Declaramos el numero total de cursos que vamos a crear
+        int numeroCursos = 4;
 
-        Map<String, Curso> curso = new HashMap();
+        // Variable para declarar la opcion introducida por teclado por el usuario
+        int opc;
+        
+        Map<String, Curso> cursos = new HashMap();
 
-        System.out.println("Creando curso...");
-        System.out.println("Nombre del curso:");
-        nombre = br.readLine();
-        System.out.println("Duracion: ");
-        duracion = Integer.parseInt(br.readLine());
-
-        Curso cur1 = new Curso(nombre, duracion);
-        curso.put("01", cur1);
-
-        ObjectOutputStream scrb = new ObjectOutputStream(new FileOutputStream("FichInfoCurso.txt"));
-        Herramientas.escribirMap(scrb, curso);
-
+        // creamos los cursos
+        Metodos.crearCursos((HashMap<String, Curso>) cursos, numeroCursos, nombreFichero);
+        
         do {
-            System.out.println("Menu");
-            System.out.println("1.-Numerar cursos");
-            System.out.println("2.-Media");
-            System.out.println("3.-Duracion");
-            System.out.println("4.-Salir");
+            Metodos.mostrarMenu();
+            
             System.out.println("Opcion: ");
-            opc = Integer.parseInt(br.readLine());
+            opc = Integer.parseInt(teclado.readLine());
             switch (opc) {
                 case 1:
-                    ObjectInputStream lec = new ObjectInputStream(new FileInputStream("FichInfoCurso.txt"));
-                    Herramientas.leerMap(lec);
+                    ObjectInputStream cursosOS = new ObjectInputStream(new FileInputStream(nombreFichero));
+                    Herramientas.leerObjetos(cursosOS);
                     break;
-
+                
                 case 2:
-                    System.out.println("sfgsdf");
+                    ObjectInputStream cursosOS2 = new ObjectInputStream(new FileInputStream(nombreFichero));
+                    Metodos.mediaDuracionCursos(cursosOS2);
+                    
                     break;
-
+                
                 case 3:
-                    System.out.println("sdfdsf");
+                    ObjectInputStream cursosOS3 = new ObjectInputStream(new FileInputStream(nombreFichero));
+                    Metodos.mayorDuracion(cursosOS3);
                     break;
                 case 4:
                     System.out.println("Salir.");
                     break;
             }
-        }while (opc != 4);
+        } while (opc != 4);
     }
 }
-            
-        
-    
