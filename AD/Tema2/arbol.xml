@@ -1,0 +1,5 @@
+<tienda nombre="tienda para geeks" ubicacion="Tokio, Japon">
+  <computadora nombre="iBook" precio="$1200" />
+  <historieta nombre="Dragon Ball Volumen 1" precio="$9" />
+  <nivel precio="sin precio" />
+</tienda>

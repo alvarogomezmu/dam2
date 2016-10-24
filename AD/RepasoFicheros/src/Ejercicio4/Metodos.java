@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Ejercicio4;
 
 import static java.awt.PageAttributes.MediaType.C;
@@ -54,9 +49,8 @@ public class Metodos {
 
         RandomAccessFile salida;
         salida = new RandomAccessFile(".\\" + fichero + ".txt", "rw");
-        
-        //BufferedWriter escribir = new BufferedWriter(new FileWriter(".\\" + fichero + ".txt"));
 
+        //BufferedWriter escribir = new BufferedWriter(new FileWriter(".\\" + fichero + ".txt"));
         // recorremos la coleccion e imprimimos todos los valores
         while (it.hasNext()) {
             salida.writeInt((int) it.next());
@@ -67,24 +61,9 @@ public class Metodos {
     public static void mostrarTerceraPosicion(String fichero) throws IOException, FileNotFoundException {
         RandomAccessFile entrada;
         entrada = new RandomAccessFile(".\\" + fichero + ".txt", "r");
-        
-        
+
         entrada.seek(4 * 2);
         int dato = entrada.readInt();
         System.out.println("La tercera posicion es: " + dato);
-
-//        BufferedReader file = new BufferedReader(new FileReader(".\\" + fichero + ".txt"));
-//        String linea;
-//        int contador = 0;
-//        
-//
-//        while ((linea = file.readLine()) != null) {
-//            if (contador == 3) {
-//                System.out.println("La tercera posicion es " + linea);
-//                break;
-//            } else {
-//                contador++;
-//            }
-//        }
     }
 }
