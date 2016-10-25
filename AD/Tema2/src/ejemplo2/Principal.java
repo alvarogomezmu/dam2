@@ -1,8 +1,12 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package ejemplo2;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import static org.jdom2.Content.CType.Element;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -19,21 +23,30 @@ public class Principal {
      */
     public static void main(String[] args) throws JDOMException, IOException {
 
-        SAXBuilder b = new SAXBuilder();
-        Document doc = b.build(new FileInputStream("arbol.xml"));
-
-        // leer la raiz
+        SAXBuilder obj_leer = new SAXBuilder();
+        Document doc = obj_leer.build(new FileInputStream("arbol2.xml"));
         Element raiz = doc.getRootElement();
-        System.out.println(raiz.getName());
-        System.out.println(raiz.getAttributeValue("nombre"));
-        System.out.println(raiz.getAttribute("nombre"));
-        System.out.println(raiz.getAttribute("ubicacion"));
-        
-        Element c = raiz.getChild("computadora");
-        System.out.println("La computadora "+c.getAttributeValue("nombre")+" con precio "+c.getAttributeValue("precio"));
-        
-        Element h = raiz.getChild("historieta");
-        System.out.println("La historieta "+h.getAttributeValue("nombre")+" con precio "+h.getAttributeValue("precio"));
-    }
 
+        System.out.print("<" + raiz.getName() + " ");
+        System.out.println("id=" + raiz.getAttributeValue("id") + ">");
+
+        Element hijo = raiz.getChild("nombre");
+        System.out.print("\t<" + hijo.getName() + ">");
+        System.out.println(hijo.getText() + "</" + hijo.getName() + ">");
+
+        Element hijo2 = raiz.getChild("planta");
+        System.out.print("\t<" + hijo2.getName() + ">");
+        System.out.println(hijo2.getText() + "</" + hijo2.getName() + ">");
+
+        Element hijo3 = raiz.getChild("personal");
+        System.out.print("\t<" + hijo3.getName() + " ");
+        System.out.println("dni=" + hijo3.getAttributeValue("dni") + "/>");
+
+        Element hijo4 = raiz.getChild("capital");
+        System.out.print("\t<" + hijo4.getName() + " ");
+        System.out.print("cantidad=" + hijo4.getAttributeValue("cantidad") + " ");
+        System.out.println("tipo=" + hijo4.getAttributeValue("tipo") + "/>");
+
+        System.out.println("</" + raiz.getName() + ">");
+    }
 }

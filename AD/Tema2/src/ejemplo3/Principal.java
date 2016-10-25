@@ -1,16 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ejemplo3;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
+import static org.jdom2.filter.Filters.element;
 import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.XMLOutputter;
 
 /**
  *
@@ -25,15 +26,23 @@ public class Principal {
 
         SAXBuilder b = new SAXBuilder();
         Document doc = b.build(new FileInputStream("arbol3.xml"));
-
-        // leer la raiz
         Element raiz = doc.getRootElement();
-        System.out.println(raiz.getAttributeValue("id"));
+        System.out.println(raiz.getName() +":"+ raiz.getAttributeValue("nombre") +" ubicacion:"+ raiz.getAttributeValue("ubicacion"));
 
-        Element n = raiz.getChild("nombre");
-        System.out.println(" " + n.getAttributeValue("nombre") + " con planta " + c.getAttributeValue("planta"));
-//
-//        Element h = raiz.getChild("historieta");
-//        System.out.println("La historieta " + h.getAttributeValue("nombre") + " con precio " + h.getAttributeValue("precio"));
+        List<Element> tipo = raiz.getChildren("tipo");
+        Iterator i = tipo.iterator();
+        while (i.hasNext()) {
+            Element e = (Element) i.next();
+            Element c = e.getChild("computadora");
+            System.out.println(c.getName() +": "+ c.getAttributeValue("nombre") +" precio:"+ c.getAttributeValue("precio"));
+
+            Element h = e.getChild("historieta");
+            System.out.println(h.getName() +":"+ h.getAttributeValue("nombre") +" precio:"+ h.getAttributeValue("precio"));
+
+            Element p = e.getChild("nivel");
+            System.out.println(p.getName() +":"+ p.getAttributeValue("precio"));
+        }
+
     }
+
 }
