@@ -43,6 +43,8 @@ public class principal {
 
                 System.out.println(n.getName() + ": " + n.getAttributeValue("nombre"));
             }
+        } catch (IOException ex) {
+            System.out.println("error");
         }
     }
 }
