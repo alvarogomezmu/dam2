@@ -56,13 +56,6 @@ public class Ejercicio6 {
             System.out.print("\t<" + c.getName() + ">");
             System.out.println(c.getText() + "</" + c.getName() + ">");
 
-//            List<Element> telf = phijo.getChildren("profesor");
-//
-//            Iterator it = telf.iterator();
-//            while (it.hasNext()) {
-//                Element tel = (Element) it.next();
-//                System.out.println(e.getName());
-//            }
         }
 
         Element ahijo = raiz.getChild("alumnos");
