@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tienda nombre="tienda para geeks" 
-	ubicacion="Tokio, Japon">
-		<computadora nombre="ibook" precio="1200" />
-<historieta nombre="Dragon Ball Volumen 1" precio="$9" />
-</tienda>
+<tienda nombre="tienda para geeks" ubicacion="Tokio, Japon"><computadora nombre="ibook" precio="1200" /><historieta nombre="Dragon Ball Volumen 1" precio="$9" /></tienda>
