@@ -23,30 +23,6 @@ import org.jdom2.output.XMLOutputter;
 public class Herramientas {
 
     /**
-     * Crear arbol de tres niveles
-     *
-     * @param root Element root
-     * @param hijo ArrayList<Element> hijos de root
-     * @param hijoDeHijo ArrayList<ArrayList<Element>> hijos de hijos de root
-     */
-    public static void crearArbolNivel3(Element root,
-            ArrayList<Element> hijo,
-            ArrayList<ArrayList<Element>> hijoDeHijo) {
-
-        Element child;
-        Element childchild;
-
-        for (int j = 0; j < hijo.size(); j++) {
-            child = hijo.get(j);
-            for (int i = 0; i < hijoDeHijo.get(j).size(); i++) {
-                childchild = hijoDeHijo.get(j).get(i);
-                child.addContent(childchild);
-            }
-            root.addContent(child);
-        }
-    }
-
-    /**
      * Coge los hijos y muestra su nombre y su texto
      *
      * @param lista
@@ -82,7 +58,77 @@ public class Herramientas {
     }
 
     /**
-     * Crea un fichero xml a partir de un documento y lo muestra por pantalla
+     * Crear arbol de dos niveles
+     *
+     * @param root Element root
+     * @param hijo ArrayList<Element> hijos de root
+     */
+    public static void crearArbolNivel2(Element root, ArrayList<Element> hijo) {
+        Element child;
+        for (int i = 0; i < hijo.size(); i++) {
+            child = hijo.get(i);
+            root.addContent(child);
+        }
+    }
+
+    /**
+     * Crear arbol de tres niveles
+     *
+     * @param root Element root
+     * @param hijo ArrayList<Element> hijos de root
+     * @param hijoDeHijo ArrayList<ArrayList<Element>> hijos de hijos de root
+     */
+    public static void crearArbolNivel3(Element root,
+            ArrayList<Element> hijo,
+            ArrayList<ArrayList<Element>> hijoDeHijo) {
+
+        Element child;
+        Element childchild;
+
+        for (int j = 0; j < hijo.size(); j++) {
+            child = hijo.get(j);
+            for (int i = 0; i < hijoDeHijo.get(j).size(); i++) {
+                childchild = hijoDeHijo.get(j).get(i);
+                child.addContent(childchild);
+            }
+            root.addContent(child);
+        }
+    }
+
+    /**
+     * Crear arbol de cuatro niveles
+     *
+     * @param root Element Root
+     * @param hijo ArrayList<Element> hijos de root
+     * @param hijoDeHijo ArrayList<ArrayList<Element>> hijos de hijos de root
+     * @param hijoDeHijoDeHijo ArrayList<ArrayList<ArrayList<Element>>> hijos de
+     * hijos de hijos de root
+     */
+    public static void crearArbolNivel4(Element root,
+            ArrayList<Element> hijo,
+            ArrayList<ArrayList<Element>> hijoDeHijo,
+            ArrayList<ArrayList<ArrayList<Element>>> hijoDeHijoDeHijo) {
+
+        Element child;
+        Element childchild;
+        Element childchildchild;
+
+        for (int j = 0; j < hijo.size(); j++) {
+            child = hijo.get(j);
+            for (int i = 0; i < hijoDeHijo.get(j).size(); i++) {
+                childchild = hijoDeHijo.get(j).get(i);
+                for (int l = 0; l < hijoDeHijoDeHijo.get(l).size(); l++) {
+                    childchildchild = hijoDeHijoDeHijo.get(j).get(i).get(l);
+                    childchild.addContent(childchildchild);
+                }
+                child.addContent(childchild);
+            }
+            root.addContent(child);
+        }
+    }
+
+    /**
+     * Crea un fichero xml a partir de un documento
      *
      * @param documento Documento con elementos agregados previamente
      * @param nombre Nombre del fichero que se creara
@@ -92,7 +138,7 @@ public class Herramientas {
         XMLOutputter salida = new XMLOutputter();
 
         salida.output(documento, System.out);
-        salida.output(documento, new FileOutputStream("C:\\petra\\" + nombre + ".xml"));
+        salida.output(documento, new FileOutputStream(nombre + ".xml"));
     }
 
     /**
@@ -100,10 +146,26 @@ public class Herramientas {
      *
      * @param doc Fichero xml
      * @throws IOException
+     * 
+     * Hay dos formas para pintar:
+     * XMLOutputter salida = new XMLOutputter();
+        try {
+            Document doc = new Document(raiz);
+
+            // DOS FORMAS PARA PINTAR:
+            // pintamos en fichero (que hayamos creado previamente)
+            salida.output(doc, new FileOutputStream("escribir1.xml"));
+            // pintamos de forma rapida
+            //salida.output(doc, System.out);
+       } catch (IOException ex) {
+            System.out.println("Error");
+        }
+    }
      */
     public static void leerFichero(Document doc) throws IOException {
         XMLOutputter salida = new XMLOutputter();
 
         salida.output(doc, System.out);
     }
+
 }
