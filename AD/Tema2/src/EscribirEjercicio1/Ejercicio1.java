@@ -50,9 +50,12 @@ public class Ejercicio1 {
 
         try {
             // Generamos el fichero XML
-            Herramientas.escribirFichero(doc, "frutas");
+            Herramientas.escribirXMLpantalla(doc);
+            //Herramientas.escribirXMLmachacar(doc, "frutas");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+        
+        raiz.
     }
 }

@@ -35,5 +35,4 @@ public class Principal {
         Element h = raiz.getChild("historieta");
         System.out.println("La historieta "+h.getAttributeValue("nombre")+" con precio "+h.getAttributeValue("precio"));
     }
-
 }

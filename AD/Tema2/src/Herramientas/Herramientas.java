@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Herramientas;
 
 import java.io.FileOutputStream;
@@ -128,44 +123,27 @@ public class Herramientas {
     }
 
     /**
-     * Crea un fichero xml a partir de un documento
+     * Escribe el fichero pero solo lo muestra por pantalla (SIN MACHACAR)
      *
-     * @param documento Documento con elementos agregados previamente
-     * @param nombre Nombre del fichero que se creara
+     * @param doc
      * @throws IOException
      */
-    public static void escribirFichero(Document documento, String nombre) throws IOException {
-        XMLOutputter salida = new XMLOutputter();
-
-        salida.output(documento, System.out);
-        salida.output(documento, new FileOutputStream(nombre + ".xml"));
-    }
-
-    /**
-     * Lee el fichero
-     *
-     * @param doc Fichero xml
-     * @throws IOException
-     * 
-     * Hay dos formas para pintar:
-     * XMLOutputter salida = new XMLOutputter();
-        try {
-            Document doc = new Document(raiz);
-
-            // DOS FORMAS PARA PINTAR:
-            // pintamos en fichero (que hayamos creado previamente)
-            salida.output(doc, new FileOutputStream("escribir1.xml"));
-            // pintamos de forma rapida
-            //salida.output(doc, System.out);
-       } catch (IOException ex) {
-            System.out.println("Error");
-        }
-    }
-     */
-    public static void leerFichero(Document doc) throws IOException {
+    public static void escribirXMLpantalla(Document doc) throws IOException {
         XMLOutputter salida = new XMLOutputter();
 
         salida.output(doc, System.out);
     }
 
+    /**
+     * Machaca el fichero original.
+     *
+     * @param doc
+     * @param nombre
+     * @throws IOException
+     */
+    public static void escribirXMLmachacar(Document doc, String nombre) throws IOException {
+        XMLOutputter salida = new XMLOutputter();
+
+        salida.output(doc, new FileOutputStream(nombre + ".xml"));
+    }
 }
