@@ -1,31 +1,25 @@
-package EscribirEjercicio2;
+package EscribirEjercicio3;
 
 import org.jdom2.Document;
 import org.jdom2.Element;
 
 /**
  *
- * @author AlumnoT
+ * @author Alvaro
  */
-public class Ejercicio2 {
+public class Ejercicio3 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        Element raiz = new Element("menu_almuerzo");
         
+        Element raiz = new Element("Vehiculos");
+
         // Creamos el documento que contendrá el arbol
         Document doc = new Document(raiz);
-        
+
         Metodos.crearXML(doc, raiz);
-
-        Metodos.modifica1(doc, raiz);
-
-        Metodos.modifica2(doc, raiz);
-
-        Metodos.modifica3(doc, raiz);
-
     }
+
 }

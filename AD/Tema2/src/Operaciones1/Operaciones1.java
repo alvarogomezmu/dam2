@@ -18,7 +18,7 @@ public class Operaciones1 {
         // Leemos el XML y lo metemos en un document
         Document documento = null;
         try {
-            documento = new SAXBuilder().build("operaciones1copia.xml");
+            documento = new SAXBuilder().build("operaciones1copia1.xml");
         } catch (JDOMException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
@@ -27,32 +27,32 @@ public class Operaciones1 {
 
         Element root = documento.getRootElement();
 
-//        // Modificar la etiqueta nivel por libro
-//         root.getChild("nivel").setName("Libro");
-//
-//        // Escribimos las modificaciones
-//        try {
-//            Herramientas.escribirXMLpantalla(documento);
-//            Herramientas.escribirXMLmachacar(documento, "operaciones1copia");
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
-//
-//        // Modificar el atributo ubicacion por localidad
-//         root.getAttribute("ubicacion").setName("Localidad");
-//        // Escribimos las modificaciones
-//        try {
-//            Herramientas.escribirXMLpantalla(documento);
-//            Herramientas.escribirXMLmachacar(documento, "operaciones1copia");
-//        } catch (IOException ex) {
-//            ex.printStackTrace();
-//        }
+        // Modificar la etiqueta nivel por libro
+         root.getChild("nivel").setName("Libro");
+
+        // Escribimos las modificaciones
+        try {
+            Herramientas.escribirXMLpantalla(documento);
+            Herramientas.escribirXMLmachacar(documento, "operaciones1copia1");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        // Modificar el atributo ubicacion por localidad
+         root.getAttribute("ubicacion").setName("Localidad");
+        // Escribimos las modificaciones
+        try {
+            Herramientas.escribirXMLpantalla(documento);
+            Herramientas.escribirXMLmachacar(documento, "operaciones1copia1");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 //        // Modificar el precio de la ocmputadora de 1200 a 2000
 //         root.getChild("computadora").setAttribute("precio", "2000");
 //        // Escribimos las modificaciones
 //        try {
 //            Herramientas.escribirXMLpantalla(documento);
-//            Herramientas.escribirXMLmachacar(documento, "operaciones1copia");
+//            Herramientas.escribirXMLmachacar(documento, "operaciones1copia1");
 //        } catch (IOException ex) {
 //            ex.printStackTrace();
 //        }
@@ -63,20 +63,20 @@ public class Operaciones1 {
 //        //Escribimos las modificaciones
 //        try {
 //            //Herramientas.escribirXMLpantalla(documento);
-//            Herramientas.escribirXMLmachacar(documento, "operaciones1copia");
+//            Herramientas.escribirXMLmachacar(documento, "operaciones1copia1");
 //        } catch (IOException ex) {
 //            ex.printStackTrace();
 //        }
             
-        // Eliminar la etiqueta libro
-        root.removeChild("libro");
-
-        //Escribimos las modificaciones
-        try {
-            //Herramientas.escribirXMLpantalla(documento);
-            Herramientas.escribirXMLmachacar(documento, "operaciones1copia");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+//        // Eliminar la etiqueta libro
+//        root.removeChild("libro");
+//
+//        //Escribimos las modificaciones
+//        try {
+//            //Herramientas.escribirXMLpantalla(documento);
+//            Herramientas.escribirXMLmachacar(documento, "operaciones1copia1");
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//        }
     }
 }

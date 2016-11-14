@@ -17,7 +17,7 @@ public class principal {
         try {
             SAXBuilder builder = new SAXBuilder(false);
             //usar el parser Xerces Para que no valide el doc
-            Document doc = builder.build("ejemplo52.xml");
+            Document doc = builder.build("ejemplo5Copia.xml");
             //se construye el arbol en memoria desde el fichero
             // que se lo pasará por parametro.
             Element raiz = doc.getRootElement();
