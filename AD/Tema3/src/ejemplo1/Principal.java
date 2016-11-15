@@ -45,14 +45,17 @@ public class Principal {
         }
         
         // Contar el numero de libros (count)
-        XPathExpression<Element> xpath3 = XPathFactory.instance().compile("count(//libro)", Filters.element());
-        List<Element> elemento3 = xpath3.evaluate(doc);
+        XPathExpression<Double> xpath3 = XPathFactory.instance().compile("________", Filters.fdouble());
+        List<Double> elemento3 = xpath3.evaluate(doc);
         Iterator it3 = elemento3.iterator();
 
         while (it3.hasNext()) {
             Element at = (Element) it3.next();
             System.out.println(at.getName() + ": " + at.getText());
+            System.out.println("El valor es"+elemento3.get(0));
         }
+        
+        
         
 
     }
