@@ -85,7 +85,6 @@ public class Metodos {
     // 6. Lista de títulos de libros publicados por Abiteboul después de 1995:
     public static void apartado6(Document doc) {
         XPathExpression<Element> xpath6 = XPathFactory.instance().compile("//book[@year>='1995']/title", Filters.element());
-        // "//capitulo[not(position()=last())]"
         List<Element> elemento6 = xpath6.evaluate(doc);
         Iterator it6 = elemento6.iterator();
 
@@ -96,4 +95,18 @@ public class Metodos {
         }
     }
 
+    // 7. Listar el Nombre del primer autor del primer Libro
+    public static void apartado7(Document doc) {
+        XPathExpression<Element> xpath7 = XPathFactory.instance().compile("//book[@year>='1995']/title", Filters.element());
+        List<Element> elemento7 = xpath7.evaluate(doc);
+        Iterator it7 = elemento7.iterator();
+
+        System.out.println("\n6. Lista de títulos de libros publicados por Abiteboul después de 1995: ");
+        while (it7.hasNext()) {
+            Element at = (Element) it7.next();
+            System.out.println(at.getValue());
+        }
+    }
+    
+    
 }
