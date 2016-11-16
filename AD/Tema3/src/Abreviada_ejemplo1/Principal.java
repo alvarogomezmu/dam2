@@ -1,4 +1,4 @@
-package ejemplo1;
+package Abreviada_ejemplo1;
 
 import java.io.*;
 import java.util.*;

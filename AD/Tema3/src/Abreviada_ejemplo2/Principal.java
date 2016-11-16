@@ -10,7 +10,7 @@
  * mostrar el título del libro cuya editorial sea la misma que la editorial que publica libros del autor Víctor Victor Garcia Hoz.
  *
  */
-package ejemplo2;
+package Abreviada_ejemplo2;
 
 import java.io.*;
 import java.util.*;

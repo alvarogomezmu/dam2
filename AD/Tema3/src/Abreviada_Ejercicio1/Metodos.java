@@ -1,4 +1,4 @@
-package xpathEjercicio1;
+package Abreviada_Ejercicio1;
 
 import org.jdom2.Document;
 import java.io.*;
