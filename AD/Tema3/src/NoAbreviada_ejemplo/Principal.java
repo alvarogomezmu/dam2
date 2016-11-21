@@ -90,7 +90,7 @@ public class Principal {
             Element at = (Element) it5.next();
             System.out.println(at.getName() + ": " + at.getText());
         }
-        
+
         // CONSULTAR
         // EJEMPLOS FOLLOWING
         // 6. Mostrar las ciudades siguientes a Kiev
@@ -104,6 +104,96 @@ public class Principal {
             Element at = (Element) it6.next();
             System.out.println(at.getName() + ": " + at.getText());
         }
-    }
 
+        // CONSULTAR
+        // EJEMPLOS PARENT
+        // 7. Mostrar todas las ciudades menos la del pais francia
+        System.out.println("\n7. Mostrar todas las ciudades menos la del pais francia: ");
+        XPathExpression<Element> xpath7 = XPathFactory.instance().compile("//child::ciudadpais/child::country[self::country='France']/parent::ciudadpais/child::city/following::city", Filters.element());
+
+        List<Element> elemento7 = xpath7.evaluate(doc);
+        Iterator it7 = elemento7.iterator();
+
+        while (it7.hasNext()) {
+            Element at = (Element) it7.next();
+            System.out.println(at.getName() + ": " + at.getText());
+        }
+
+        // CONSULTAR
+        // 8. Mostrar todas las ciudades de UK menos Londres
+        System.out.println("\n8. Mostrar todas las ciudades de UK menos Londres: ");
+        XPathExpression<Element> xpath8 = XPathFactory.instance().compile("//child::country[self::country='UK']/parent::ciudadpais/child::city/following::city", Filters.element());
+
+        List<Element> elemento8 = xpath8.evaluate(doc);
+        Iterator it8 = elemento8.iterator();
+
+        while (it8.hasNext()) {
+            Element at = (Element) it8.next();
+            System.out.println(at.getName() + ": " + at.getText());
+        }
+
+        // CONSULTAR
+        // EJEMPLOS PRECEDING
+        // 9. Mostrar todas las ciudades menos las de ucrania
+        System.out.println("\n9. Mostrar todas las ciudades menos las de ucrania: ");
+        XPathExpression<Element> xpath9 = XPathFactory.instance().compile("//child::country[self::country='Ukraine']/preceding::city", Filters.element());
+
+        List<Element> elemento9 = xpath9.evaluate(doc);
+        Iterator it9 = elemento9.iterator();
+
+        while (it9.hasNext()) {
+            Element at = (Element) it9.next();
+            System.out.println(at.getName() + ": " + at.getText());
+        }
+        
+        // CONSULTAR
+        // 10. Mostrar las ciudades que forman parte del pais ucrania y que no sean Odessa
+        System.out.println("\n10. Mostrar las ciudades que forman parte del pais ucrania y que no sean Odessa: ");
+        XPathExpression<Element> xpath10 = XPathFactory.instance().compile("//child::city[self::city='Odessa']/preceding-sibling::city", Filters.element());
+
+        List<Element> elemento10 = xpath10.evaluate(doc);
+        Iterator it10 = elemento10.iterator();
+
+        while (it10.hasNext()) {
+            Element at = (Element) it10.next();
+            System.out.println(at.getName() + ": " + at.getText());
+        }
+        
+        // HACER EN CLASE
+        // 11. Mostrar toda la informacion de las ciudadespaises que tenemos en nuestro arbol
+        System.out.println("\n11. Mostrar toda la informacion de las ciudadespaises que tenemos en nuestro arbol: ");
+        XPathExpression<Element> xpath11 = XPathFactory.instance().compile("//child::ciudadpais/descendant::*", Filters.element());
+
+        List<Element> elemento11 = xpath11.evaluate(doc);
+        Iterator it11 = elemento11.iterator();
+
+        while (it11.hasNext()) {
+            Element at = (Element) it11.next();
+            System.out.println(at.getName() + ": " + at.getText());
+        }
+        
+        // 12. Mostrar las ciudades nordicas
+        System.out.println("\n12. Mostrar las ciudades nordicas: ");
+        XPathExpression<Element> xpath12 = XPathFactory.instance().compile("//child::city[self::city='Liverpool']/following::city", Filters.element());
+
+        List<Element> elemento12 = xpath12.evaluate(doc);
+        Iterator it12 = elemento12.iterator();
+
+        while (it12.hasNext()) {
+            Element at = (Element) it12.next();
+            System.out.println(at.getName() + ": " + at.getText());
+        }
+        
+        // 13. Mostrar toda la informacion de las ciudadespaises menos las de Ucrania
+        System.out.println("\n13. Mostrar toda la informacion de las ciudadespaises menos las de Ucrania: ");
+        XPathExpression<Element> xpath13 = XPathFactory.instance().compile("//child::country[self::country='Ukraine']/preceding::city", Filters.element());
+
+        List<Element> elemento13 = xpath13.evaluate(doc);
+        Iterator it13 = elemento13.iterator();
+
+        while (it13.hasNext()) {
+            Element at = (Element) it13.next();
+            System.out.println(at.getName() + ": " + at.getText());
+        }
+    }
 }

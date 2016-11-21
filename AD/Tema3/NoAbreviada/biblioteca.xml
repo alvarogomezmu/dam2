@@ -1,0 +1,33 @@
+<biblioteca>
+	<libro>
+		<autor>Deepak Chopra</autor>
+		<titulo>El sendero del Mago</titulo>
+		<isbn>950151727</isbn>
+		<editorial>Harmany Book</editorial>
+		<editorial>Harmany Book1</editorial>
+		<sumario>... nos muestra como debemos ... Por medio de historias como </sumario>
+		<precio moneda="pesos">50.00</precio>
+	</libro>
+	<libro>
+		<autor>Miguel Cervantes</autor>
+		<titulo>Don quijote</titulo>
+		<isbn>950151725</isbn>
+		<editorial>Alfaguara</editorial>
+		<sumario>... aventuras fantasticas ... llenas de imaginacion </sumario>
+		<precio moneda="euros">30.00</precio>
+	</libro>
+	<libro>
+		<autor>Miguel Delibes</autor>
+		<titulo>Don  anacleto </titulo>
+		<isbn>950151726</isbn>
+		<editorial>Alfaguara</editorial>
+		<sumario>... romance... ttragedia </sumario>
+		<precio moneda="euros">20.00</precio>
+	</libro>
+	<disco>
+		<autor>Miguel rios</autor>
+		<titulo>Bienvenidos</titulo>
+		<isbn>990151726</isbn>
+		<precio moneda="euros">24.00</precio>
+	</disco>
+</biblioteca>
