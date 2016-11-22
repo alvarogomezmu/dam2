@@ -150,7 +150,7 @@ public class Principal {
         // 10. Mostrar las ciudades que forman parte del pais ucrania y que no sean Odessa
         System.out.println("\n10. Mostrar las ciudades que forman parte del pais ucrania y que no sean Odessa: ");
         XPathExpression<Element> xpath10 = XPathFactory.instance().compile("//child::city[self::city='Odessa']/preceding-sibling::city", Filters.element());
-
+        
         List<Element> elemento10 = xpath10.evaluate(doc);
         Iterator it10 = elemento10.iterator();
 
