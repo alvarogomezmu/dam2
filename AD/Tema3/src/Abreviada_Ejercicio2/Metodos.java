@@ -85,6 +85,7 @@ public class Metodos {
     // 6. Lista de títulos de libros publicados por Abiteboul después de 1995:
     public static void apartado6(Document doc) {
         XPathExpression<Element> xpath6 = XPathFactory.instance().compile("//book[@year>='1995']/title", Filters.element());
+        //book[autor='Abiteboul' and @year='1995']/title
         List<Element> elemento6 = xpath6.evaluate(doc);
         Iterator it6 = elemento6.iterator();
 
