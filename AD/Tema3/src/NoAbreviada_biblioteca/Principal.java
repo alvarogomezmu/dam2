@@ -90,7 +90,7 @@ public class Principal {
         // 5. Following Mostrar todos los isbn incluido el del autor Deepak Chopra
         System.out.println("\n5. Following Mostrar todos los isbn incluido el del autor Deepak Chopra: ");
         XPathExpression<Element> xpath5 = XPathFactory.instance().compile("//child::libro//child::isbn/following::isbn", Filters.element());
-
+        
         List<Element> elemento5 = xpath5.evaluate(doc);
         Iterator it5 = elemento5.iterator();
 
@@ -101,7 +101,9 @@ public class Principal {
 
         // 6. Following Mostrar todos los autores incluidos los de disco sin que entre el deepak chopra
         System.out.println("\n6. Following Mostrar todos los autores incluidos los de disco sin que entre el Deepak Chopra: ");
-        XPathExpression<Element> xpath6 = XPathFactory.instance().compile("//child::libro//child::autor[self::autor='Deepak Chopra']/parent::libro/child::autor/following::autor", Filters.element());
+        XPathExpression<Element> xpath6 = XPathFactory.instance().compile("//child::libro[child::autor='Deepak Chopra']/following::autor", Filters.element());
+        //child::libro//child::autor[self::autor='Deepak Chopra']/parent::libro/child::autor/following::autor        
+
 
         List<Element> elemento6 = xpath6.evaluate(doc);
         Iterator it6 = elemento6.iterator();
@@ -114,7 +116,7 @@ public class Principal {
         // 7. Following-sibling Mostrar el último libro
         System.out.println("\n7. Following-sibling Mostrar el último libro: ");
         XPathExpression<Element> xpath7 = XPathFactory.instance().compile("/child::biblioteca/child::libro[3]/child::autor/following-sibling::*", Filters.element());
-
+        //child::libro[position()=2]/following-sibling::libro
         List<Element> elemento7 = xpath7.evaluate(doc);
         Iterator it7 = elemento7.iterator();
 

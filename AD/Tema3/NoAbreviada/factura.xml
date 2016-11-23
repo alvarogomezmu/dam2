@@ -1,0 +1,135 @@
+<facturas>
+
+<datos_empresa>
+
+<nombre>Equipos Digitales S.L.</nombre>
+
+<dir>Av. Valladolid</dir>
+
+<poblacion cod_postal="28043">Madrid</poblacion>
+
+<provincia>Madrid</provincia>
+
+<cif>Q-9876543</cif>
+
+<telefono/>
+
+</datos_empresa>
+
+<datos_cliente n_cli="c879">
+
+<nombre>Dario, Bueno Gutierrez</nombre>
+
+<sexo>h</sexo>
+
+<dir_env>Av. Oporto no7 4od</dir_env>
+
+<poblacion cod_postal="56043">Ciudad Real</poblacion>
+
+<provincia>Ciudad Real</provincia>
+
+</datos_cliente>
+
+<datos_factura n_ped="p731" iva="16" f_pago= "tarjeta" moneda="euro" n_cli="c879">
+
+<fecha>12-01-2005</fecha>
+
+<linea>
+
+<ref>MII93000F/8</ref>
+
+<desc>MICRO PENTIUM IV 3000MHZ FB800</desc>
+
+<cant>1</cant>
+
+<precio>230</precio>
+
+<importe>266,80</importe>
+
+</linea>
+
+</datos_factura>
+
+<datos_cliente n_cli="c880">
+
+<nombre>Maria Perez Sanchez</nombre>
+
+<sexo>m</sexo>
+
+<dir_env>Av. pez no8 4od</dir_env>
+
+<poblacion cod_postal="28045">Madrid</poblacion>
+
+<provincia>Madrid</provincia>
+
+</datos_cliente>
+
+<datos_factura n_ped="p732" iva="16" f_pago= "efectivo" moneda="euro" n_cli="c880">
+
+<fecha>21-02-2005</fecha>
+
+<linea>
+
+<ref>MB8QDIP4</ref>
+
+<desc>PLACA BASE QDI P4</desc>
+
+<cant>1</cant>
+
+<precio>180</precio>
+
+<importe>208,80</importe>
+
+</linea>
+
+</datos_factura>
+
+<datos_cliente n_cli="c881">
+
+<nombre>Silvia Soto Sanchez</nombre>
+
+<sexo>m</sexo>
+
+<dir_env>Av.Mediterraneo no100 4ob</dir_env>
+
+<poblacion cod_postal="28028">Madrid</poblacion>
+
+<provincia>Madrid</provincia>
+
+</datos_cliente>
+
+<datos_factura n_ped="p733" iva="16" f_pago= "tarjeta" moneda="euro" n_cli="c881">
+
+<fecha>20-03-2005</fecha>
+
+<linea>
+
+<ref>MEDD512M32</ref>
+
+<desc>DIMM DDR 512MB 3200</desc>
+
+<cant>2</cant>
+
+<precio>40</precio>
+
+<importe>92,80</importe>
+
+</linea>
+
+<linea>
+
+<ref>MEDD512M33</ref>
+
+<desc>DIMM DDR 512MB 6400</desc>
+
+<cant>1</cant>
+
+<precio>41</precio>
+
+<importe>95,60</importe>
+
+</linea>
+
+</datos_factura>
+
+</facturas>
