@@ -8,6 +8,7 @@ import org.jdom2.filter.Filters;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.xpath.XPathExpression;
 import org.jdom2.xpath.XPathFactory;
+import Herramientas.*;
 
 /**
  *
@@ -17,14 +18,14 @@ public class Metodos {
 
     // 1. Seleccionar el segundo capitulo:
     public static void apartado1(Document doc) {
-
+        System.out.println("1. Seleccionar el segundo capitulo:");
         XPathExpression<Element> xpath1 = XPathFactory.instance().compile("//capitulo[position()=2]", Filters.element());
         List<Element> elemento1 = xpath1.evaluate(doc);
         Iterator it1 = elemento1.iterator();
 
         while (it1.hasNext()) {
             Element at = (Element) it1.next();
-            System.out.println("El segundo capitulo es: " + at.getValue());
+            System.out.println(at.getValue());
         }
     }
 
@@ -55,27 +56,14 @@ public class Metodos {
 
     // 4.Mostrar todos los parrafos de todos los libros:
     public static void apartado4(Document doc) {
-        XPathExpression<Element> xpath4 = XPathFactory.instance().compile("//capitulo/parrafo", Filters.element());
-        List<Element> elemento4 = xpath4.evaluate(doc);
-        Iterator it4 = elemento4.iterator();
-
-        System.out.println("Todos los parrafos de todos los libros:");
-        while (it4.hasNext()) {
-            Element at = (Element) it4.next();
-            System.out.println(at.getValue());
-        }
+        System.out.println("4. Mostrar todos los parrafos de todos los libros:");
+        Herramientas.xpath(doc, "//capitulo/parrafo");
     }
 
     // 5.Para seleccionar todos los elementos hijo de párrafo cuyo atributo destacar sea igual a "si".
     public static void apartado5(Document doc) {
-        XPathExpression<Element> xpath5 = XPathFactory.instance().compile("//capitulo/parrafo[@destacar='si']", Filters.element());
-        List<Element> elemento5 = xpath5.evaluate(doc);
-        Iterator it5 = elemento5.iterator();
-
-        while (it5.hasNext()) {
-            Element at = (Element) it5.next();
-            System.out.println("Todos los elementos hijo de párrafo cuyo atributo destacar sea igual a 'si':\n" + at.getValue());
-        }
+        System.out.println("5. Seleccionar todos los elementos hijo de párrafo cuyo atributo destacar sea igual a 'si'.");
+        Herramientas.xpath(doc, "//capitulo/parrafo[@destacar='si']");
     }
 
 }

@@ -20,13 +20,13 @@ public class Ejercicio1 {
     public static void main(String[] args) throws JDOMException, IOException {
         // LEER
         SAXBuilder b = new SAXBuilder();
-        Document doc = b.build(new FileInputStream("noAbreviada\\ejemplo1.xml"));
+        Document doc = b.build(new FileInputStream("Abreviada\\ejemplo1.xml"));
 
         Metodos.apartado1(doc);
-        Metodos.apartado2(doc);
-        Metodos.apartado3(doc);
-        Metodos.apartado4(doc);
-        Metodos.apartado5(doc);
+//        Metodos.apartado2(doc);
+//        Metodos.apartado3(doc);
+//        Metodos.apartado4(doc);
+//        Metodos.apartado5(doc);
 
     }
 
