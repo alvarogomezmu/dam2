@@ -27,7 +27,7 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        RandomAccessFile raf = new RandomAccessFile("productos.txt", "rw");
+
 // metodo para leer por teclado
         BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
 
