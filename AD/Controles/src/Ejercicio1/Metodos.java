@@ -38,6 +38,7 @@ public class Metodos {
      * @param maximo
      */
     public static void crearProductos(BufferedReader teclado, String ruta, int numeroProductos, int maximo) {
+
         FileOutputStream fos = null;
         ObjectOutputStream salida = null;
         Producto p;
@@ -87,6 +88,7 @@ public class Metodos {
     }
 
     public static void mostrarTodos(String ruta, int numeroProductos) {
+        
         FileInputStream fis = null;
         ObjectInputStream entrada = null;
         Producto p;
@@ -99,7 +101,7 @@ public class Metodos {
                 p = (Producto) entrada.readObject(); //es necesario el casting
                 if (i == numeroProductos - 1) {
 
-                    System.out.println("Codigo:"+p.getCodigo() +"Nombre:"+p.getNombre() +"Precio:"+p.getPrecio());
+                    System.out.println("Codigo:" + p.getCodigo() + "Nombre:" + p.getNombre() + "Precio:" + p.getPrecio());
                 }
             }
 

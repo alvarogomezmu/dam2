@@ -1,15 +1,15 @@
 /*
-Crear un fichero POR TECLADO pidiendo: Código, nombre y precio nos tiene que
-pedir 5 veces la información a guardar (0,25 puntos). El fichero se llamara
-productos.txt .Una vez lo tengamos creado tenemos que mostrar un menú como
-el que se muestra y que debe repetirse hasta que no se le dé a la opción de salir. (0,25)
+ Crear un fichero POR TECLADO pidiendo: Código, nombre y precio nos tiene que
+ pedir 5 veces la información a guardar (0,25 puntos). El fichero se llamara
+ productos.txt .Una vez lo tengamos creado tenemos que mostrar un menú como
+ el que se muestra y que debe repetirse hasta que no se le dé a la opción de salir. (0,25)
 
-a. Mostrar todos los datos introducidos (0,5puntos)
-b. Modificar el valor de la posición 2 cambiando nombre por
+ a. Mostrar todos los datos introducidos (0,5puntos)
+ b. Modificar el valor de la posición 2 cambiando nombre por
 
-******. Mostrar el cambio realizado. (2 puntos)
-c. Mostrar el primero y el tercero dato introducido. (1 punto)
-d. Salir
+ ******. Mostrar el cambio realizado. (2 puntos)
+ c. Mostrar el primero y el tercero dato introducido. (1 punto)
+ d. Salir
 
  */
 package Ejercicio1;
@@ -27,7 +27,8 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        // metodo para leer por teclado
+        RandomAccessFile raf = new RandomAccessFile("productos.txt", "rw");
+// metodo para leer por teclado
         BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
 
         //declaramos el numero de productos
