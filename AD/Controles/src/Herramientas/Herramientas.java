@@ -111,6 +111,21 @@ public class Herramientas {
             System.out.println("Error: " + e);
         }
     }
+    
+    public static void LeerFichero(String fichero) {
+        try {
+            BufferedReader leer = new BufferedReader(new FileReader(fichero));
+            String linea;
+            while (leer.ready()) {
+                linea = leer.readLine();
+                System.out.println(linea);
+            }
+            leer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * Metodo para recorrer un ArrayList de Integers e imprimirlos

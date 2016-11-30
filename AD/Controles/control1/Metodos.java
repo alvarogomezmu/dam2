@@ -1,6 +1,12 @@
-package Ejercicio1;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package control1;
 
 import java.io.*;
+
 import Herramientas.*;
 
 /**
@@ -33,13 +39,14 @@ public class Metodos {
         for (int i = 0; i < 5; i++) {
             System.out.println("\n---Alta Datos---");
             System.out.println("1.- Intro Código");
-            Fichero.writeUTF(Herramientas.ConvertUTF(br.readLine(), 20));
+            Fichero.writeUTF(Herramientas.convertUTF(br.readLine(), 20));
             System.out.println("2.-.Intro Nombre");
-            Fichero.writeUTF(Herramientas.ConvertUTF(br.readLine(), 20));
+            Fichero.writeUTF(Herramientas.convertUTF(br.readLine(), 20));
             System.out.println("3.-.Intro Precio");
             Fichero.writeDouble(Double.parseDouble(br.readLine()));
 
         }
         Fichero.close();
     }
+
 }

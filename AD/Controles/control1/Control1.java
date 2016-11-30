@@ -1,34 +1,22 @@
 /*
- Crear un fichero POR TECLADO pidiendo: Código, nombre y precio nos tiene que
- pedir 5 veces la información a guardar (0,25 puntos). El fichero se llamara
- productos.txt .Una vez lo tengamos creado tenemos que mostrar un menú como
- el que se muestra y que debe repetirse hasta que no se le dé a la opción de salir. (0,25)
-
- a. Mostrar todos los datos introducidos (0,5puntos)
- b. Modificar el valor de la posición 2 cambiando nombre por
-
- ******. Mostrar el cambio realizado. (2 puntos)
- c. Mostrar el primero y el tercero dato introducido. (1 punto)
- d. Salir
-
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
-package Ejercicio1;
+package control1;
 
 import java.io.*;
 import java.util.*;
+import control1.*;
 import Herramientas.*;
 
-/**
- *
- * @author AlumnoT
- */
-public class Principal {
+public class Control1 {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-// TODO code application logic here
+    public static void main(String[] args) throws IOException {
+        // TODO code application logic here
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         /*  RandomAccessFile NOMBRE = new RandomAccessFile("ruta.txt", "rw");*/
         int opc = 0;
@@ -42,7 +30,7 @@ public class Principal {
 
             switch (opc) {
                 case 1:/* Mostrar todos  los datos introducidos */
-                    System.out.println("Los datos introducidos");
+                    System.out.println("L1os datos introducidos");
                     Herramientas.LeerFichero("ruta.txt");
 
                     break;
@@ -85,7 +73,10 @@ public class Principal {
                 case 4:/* Salir 1 */
                     System.out.println("Adios. Gracias por usar la Aplicacion");
                     break;
+
             }
         } while (opc != 4);
+
     }
+
 }
