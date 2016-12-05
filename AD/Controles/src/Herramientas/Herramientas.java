@@ -85,34 +85,34 @@ public class Herramientas {
         return s;
     }
 
-    /**
-     * Metodo para leer fichero mediante BufferedReader
-     *
-     * @param br BufferedReader declarado previamente
-     * @param ar ArrayList de Integer declarado previamente
-     */
-    public static void leerFichero(BufferedReader br, ArrayList<Integer> ar) {
-        // Declaramos variable para luego almacenar las lineas leidas del fichero
-        String linea;
-        try {
-            // Se almacenan las lineas mientras haya lineas
-            while ((linea = br.readLine()) != null) {
-                // Declaracion de StringTokenizer para la linea almacenada
-                // con el token !
-                StringTokenizer tok = new StringTokenizer(linea, "!");
-                // Mientras haya tokens, añadirlos al ArrayList<Integer>
-                while (tok.hasMoreTokens()) {
-                    ar.add(Integer.parseInt(tok.nextToken()));
-                    ar.add(Integer.parseInt(tok.nextToken()));
-                }
-            }
-            // Cerrar el fichero
-            br.close();
-            // SI ha habido un error, mostrarlo
-        } catch (IOException e) {
-            System.out.println("Error: " + e);
-        }
-    }
+//    /**
+//     * Metodo para leer fichero mediante BufferedReader
+//     *
+//     * @param br BufferedReader declarado previamente
+//     * @param ar ArrayList de Integer declarado previamente
+//     */
+//    public static void leerFichero(BufferedReader br, ArrayList<Integer> ar) {
+//        // Declaramos variable para luego almacenar las lineas leidas del fichero
+//        String linea;
+//        try {
+//            // Se almacenan las lineas mientras haya lineas
+//            while ((linea = br.readLine()) != null) {
+//                // Declaracion de StringTokenizer para la linea almacenada
+//                // con el token !
+//                StringTokenizer tok = new StringTokenizer(linea, "!");
+//                // Mientras haya tokens, añadirlos al ArrayList<Integer>
+//                while (tok.hasMoreTokens()) {
+//                    ar.add(Integer.parseInt(tok.nextToken()));
+//                    ar.add(Integer.parseInt(tok.nextToken()));
+//                }
+//            }
+//            // Cerrar el fichero
+//            br.close();
+//            // SI ha habido un error, mostrarlo
+//        } catch (IOException e) {
+//            System.out.println("Error: " + e);
+//        }
+//    }
 
 public static void LeerFichero(String fichero) {
         try {
