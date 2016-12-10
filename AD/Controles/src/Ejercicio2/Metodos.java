@@ -26,12 +26,12 @@ public class Metodos {
      * @param map HashMap Que contendra los valores de los personas
      * @throws IOException Excepcion de teclado
      */
-    public static void inicializarMap(HashMap<String, Integer> map) {
-        // Metemos valores por defecto en el HashMap
-        map.put("Ignacio", 45, "Matematico");
-        map.put("Ruben", 20, "Filosofo");
-        map.put("Marcos", 19, "Filologo");
-    }
+//    public static void inicializarMap(HashMap<String, Integer> map) {
+//        // Metemos valores por defecto en el HashMap
+//        map.put("Ignacio", 45, "Matematico");
+//        map.put("Ruben", 20, "Filosofo");
+//        map.put("Marcos", 19, "Filologo");
+//    }
 
     public static void escribirFichero(String ruta, HashMap<String, Integer> map) throws IOException {
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ruta));
@@ -113,7 +113,7 @@ public class Metodos {
         System.out.println("Introduce la titulacion de la persona");
         String titulacion = br.readLine();
 
-        map.put(nombre, edad, titulacion);
+        //map.put(nombre, edad, titulacion);
 
         // Escribimos el map en el fichero
         escribirFichero(ruta, map);

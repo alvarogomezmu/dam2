@@ -85,7 +85,7 @@ public class FutbolArbol {
         while (it5.hasNext()) {
             Element e = (Element) it5.next();
             System.out.println("\t<" + e.getName() + " temporada=" + e.getAttributeValue("temporada") + " equipo=" + e.getAttributeValue("equipo") + "/>");
-            System.out.println("\t\t" + "jugador " + e.getChildText("jugador")+e.get);
+            System.out.println("\t\t" + "jugador " + e.getChildText("jugador"));
         }
         System.out.println("</" + plhijo.getName() + ">");
         System.out.println("</" + raiz.getName() + ">");

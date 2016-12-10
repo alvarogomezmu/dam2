@@ -49,7 +49,7 @@ public class Principal {
         HashMap<String, Integer> mapProductos = new HashMap<String, Integer>();
 
         // Inicializamos el map
-        Metodos.inicializarMap(mapProductos);
+        //Metodos.inicializarMap(mapProductos);
 
         try {
             // Escribimos el map en el fichero
