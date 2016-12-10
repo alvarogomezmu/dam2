@@ -19,7 +19,7 @@ public class Principal {
         Document doc = new Document (raiz);
         
         Metodos.crearXML(doc, raiz);
-        //Herramientas.Herramientas.LeerFichero("escribirAlumnos.xml");
+        Herramientas.Herramientas.LeerFichero("escribirAlumnos.xml");
     }
 
 }

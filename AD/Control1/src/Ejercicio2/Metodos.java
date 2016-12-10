@@ -118,8 +118,8 @@ public class Metodos {
 
         try {
             // Generamos el fichero XML
-            Herramientas.escribirXMLpantalla(doc);
-            //Herramientas.escribirXMLmachacar(doc, "escribirAlumnos");
+            //Herramientas.escribirXMLpantalla(doc);
+            Herramientas.escribirXMLmachacar(doc, "escribirAlumnos");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
