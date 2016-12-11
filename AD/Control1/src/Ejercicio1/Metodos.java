@@ -127,7 +127,7 @@ public class Metodos {
 
     public static void apartado5(Document doc) {
 
-        XPathExpression<Element> xpath1 = XPathFactory.instance().compile("//personas/persona/fechas[@fallecimiento!=0]/nombre", Filters.element());
+        XPathExpression<Element> xpath1 = XPathFactory.instance().compile("//personas/persona[not (fechas/@fallecimiento)]/nombre", Filters.element());
         List<Element> elemento1 = xpath1.evaluate(doc);
         Iterator it1 = elemento1.iterator();
 
@@ -141,7 +141,7 @@ public class Metodos {
 
     public static void apartado6(Document doc) {
 
-        XPathExpression<Element> xpath1 = XPathFactory.instance().compile("//persona/nombre", Filters.element());
+        XPathExpression<Element> xpath1 = XPathFactory.instance().compile("//personas/persona[fechas/@nacimiento>'1901' and fechas/@fallecimiento<'2001']/nombre", Filters.element());
         List<Element> elemento1 = xpath1.evaluate(doc);
         Iterator it1 = elemento1.iterator();
 
@@ -152,5 +152,18 @@ public class Metodos {
         }
     }
 //     7. Fecha de nacimiento de los actores de la película "Tres en un sofá"
-//     
+
+    public static void apartado7(Document doc) {
+
+        // no consigo imprimir la fecha (de nacimiento, que es un atributo) pero si el nombre
+        XPathExpression<Element> xpath1 = XPathFactory.instance().compile("//persona[nombre=//pelicula[titulo='Tres en un sofa']/actor]/fechas/@nacimiento", Filters.element());
+        List<Element> elemento1 = xpath1.evaluate(doc);
+        Iterator it1 = elemento1.iterator();
+
+        System.out.println("\n7.Fecha de nacimiento de los actores de la película \"Tres en un sofá\":");
+        while (it1.hasNext()) {
+            Element at = (Element) it1.next();
+            System.out.println(at.getValue());
+        }
+    }
 }
