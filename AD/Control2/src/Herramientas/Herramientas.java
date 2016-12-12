@@ -397,4 +397,15 @@ public class Herramientas {
         salida.output(doc, new FileOutputStream(nombre + ".xml"));
     }
 
+    public static void xpath(Document doc, String ruta) {
+
+        XPathExpression<Element> xpath = XPathFactory.instance().compile(ruta, Filters.element());
+        List<Element> elemento = xpath.evaluate(doc);
+        Iterator it = elemento.iterator();
+
+        while (it.hasNext()) {
+            Element at = (Element) it.next();
+            System.out.println(at.getName() + ": " + at.getText());
+        }
+    }
 }

@@ -37,7 +37,6 @@
 		<persona sexo="mujer">
 
 			<nombre>Janet Leigh</nombre>
-			<cojones>dfdgdfgdfgdfg</cojones>
 
 			<fechas nacimiento="1927" fallecimiento="2004" />
 
@@ -77,7 +76,7 @@
 
 			<director>Jerry Lewis</director>
 
-			
+			<actor>David Perry</actor>
 
 			<actor>Janet Leigh</actor>
 
