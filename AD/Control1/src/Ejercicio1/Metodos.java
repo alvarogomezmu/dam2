@@ -1,13 +1,14 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Ejercicio1;
 
 import org.jdom2.Document;
-import java.io.*;
-import java.util.*;
-import org.jdom2.*;
-import org.jdom2.filter.Filters;
-import org.jdom2.input.SAXBuilder;
-import org.jdom2.xpath.XPathExpression;
-import org.jdom2.xpath.XPathFactory;
+import org.jdom2.Element;
+import Herramientas.*;
+import java.io.IOException;
 
 /**
  *
@@ -15,155 +16,52 @@ import org.jdom2.xpath.XPathFactory;
  */
 public class Metodos {
 
-//     ABREVIADA
-//     1. Títulos de las películas
-    public static void apartado1(Document doc) {
+    public static void crearXML(Document doc, Element raiz) {
 
-        XPathExpression<Element> xpath1 = XPathFactory.instance().compile("//peliculas/pelicula/titulo", Filters.element());
-        List<Element> elemento1 = xpath1.evaluate(doc);
-        Iterator it1 = elemento1.iterator();
+        raiz.setAttribute("fecha", "1999-10-20");
 
-        System.out.println("1.Mostrar Títulos de las películas:");
-        while (it1.hasNext()) {
-            Element at = (Element) it1.next();
-            System.out.println(at.getValue());
-        }
-    }
+        Element destino = new Element("Destino");
+        Element ordenante = new Element("Ordenante");
+        Element observaciones = new Element("Observaciones");
+        Element contenido = new Element("Contenido");
 
-    public static void apartado1_NoAbreviado(Document doc) {
+        destino.addContent(new Element("Nombre").setText("Alicia Abad"));
+        destino.addContent(new Element("Direccion").setText("Plaza de la Duquesa, 12"));
+        destino.addContent(new Element("Ciudad").setText("Albacete"));
+        destino.addContent(new Element("CodPostal").setText("05020"));
+        raiz.addContent(destino);
 
-        XPathExpression<Element> xpath1 = XPathFactory.instance().compile("//child::peliculas/child::pelicula/child::titulo", Filters.element());
-        List<Element> elemento1 = xpath1.evaluate(doc);
-        Iterator it1 = elemento1.iterator();
+        ordenante.addContent(new Element("Nombre").setText("Roberto Movilla"));
+        ordenante.addContent(new Element("Direccion").setText("General Ricardos, 56"));
+        ordenante.addContent(new Element("Ciudad").setText("Madrid"));
+        ordenante.addContent(new Element("CodPostal").setText("28055"));
+        raiz.addContent(ordenante);
 
-        System.out.println("1.\nMostrar Títulos de las películas:");
-        while (it1.hasNext()) {
-            Element at = (Element) it1.next();
-            System.out.println(at.getValue());
-        }
-    }
+        observaciones.setText("Es urgente, el cesped esta muy alto");
+        raiz.addContent(observaciones);
 
-//     2. Títulos de las películas en las que Anthony Perkins es actor
-    public static void apartado2(Document doc) {
+        Element producto = new Element("Producto");
+        producto.setAttribute("codigo", "872-AA");
+        producto.addContent(new Element("Nombre").setText("Cortadora de cesped"));
+        producto.addContent(new Element("Cantidad").setText("1"));
+        producto.addContent(new Element("Precio").setText("148.98"));
+        producto.addContent(new Element("Observaciones").setText("Confirmar que es electrica"));
+        contenido.addContent(producto);
 
-        XPathExpression<Element> xpath1 = XPathFactory.instance().compile("//peliculas/pelicula[actor='Anthony Perkins']/titulo", Filters.element());
-        List<Element> elemento1 = xpath1.evaluate(doc);
-        Iterator it1 = elemento1.iterator();
+        producto = new Element("Producto");
+        producto.setAttribute("codigo", "926-FH");
+        producto.addContent(new Element("Nombre").setText("Podadora"));
+        producto.addContent(new Element("Cantidad").setText("3"));
+        producto.addContent(new Element("Precio").setText("7.98"));
+        contenido.addContent(producto);
 
-        System.out.println("\n2.Títulos de las películas en las que Anthony Perkins es actor:");
-        while (it1.hasNext()) {
-            Element at = (Element) it1.next();
-            System.out.println(at.getValue());
-        }
-    }
-
-    public static void apartado2_NoAbreviada(Document doc) {
-
-        XPathExpression<Element> xpath1 = XPathFactory.instance().compile("//child::peliculas/child::pelicula[child::actor='Anthony Perkins']/child::titulo", Filters.element());
-        List<Element> elemento1 = xpath1.evaluate(doc);
-        Iterator it1 = elemento1.iterator();
-
-        System.out.println("\n2.Títulos de las películas en las que Anthony Perkins es actor:");
-        while (it1.hasNext()) {
-            Element at = (Element) it1.next();
-            System.out.println(at.getValue());
-        }
-    }
-//     3. Nombre de las personas de sexo femenino
-
-    public static void apartado3(Document doc) {
-
-        XPathExpression<Element> xpath1 = XPathFactory.instance().compile("//personas/persona[@sexo='mujer']/nombre", Filters.element());
-        List<Element> elemento1 = xpath1.evaluate(doc);
-        Iterator it1 = elemento1.iterator();
-
-        System.out.println("\n3.Nombre de las personas de sexo femenino:");
-        while (it1.hasNext()) {
-            Element at = (Element) it1.next();
-            System.out.println(at.getValue());
-        }
-    }
-
-    public static void apartado3_NoAbreviada(Document doc) {
-
-        XPathExpression<Element> xpath1 = XPathFactory.instance().compile("//child::personas/child::persona[@sexo='mujer']/child::nombre", Filters.element());
-        List<Element> elemento1 = xpath1.evaluate(doc);
-        Iterator it1 = elemento1.iterator();
-
-        System.out.println("\n3.Nombre de las personas de sexo femenino:");
-        while (it1.hasNext()) {
-            Element at = (Element) it1.next();
-            System.out.println(at.getValue());
-        }
-    }
-//     4. Directores de las películas en las que actua Janet Leigh
-
-    public static void apartado4(Document doc) {
-
-        XPathExpression<Element> xpath1 = XPathFactory.instance().compile("//peliculas/pelicula[actor='Janet Leigh']/director", Filters.element());
-        List<Element> elemento1 = xpath1.evaluate(doc);
-        Iterator it1 = elemento1.iterator();
-
-        System.out.println("\n4.Directores de las películas en las que actua Janet Leigh:");
-        while (it1.hasNext()) {
-            Element at = (Element) it1.next();
-            System.out.println(at.getValue());
-        }
-    }
-
-    public static void apartado4_NoAbreviada(Document doc) {
-
-        XPathExpression<Element> xpath1 = XPathFactory.instance().compile("//child::peliculas/child::pelicula[actor='Janet Leigh']/child::director", Filters.element());
-        List<Element> elemento1 = xpath1.evaluate(doc);
-        Iterator it1 = elemento1.iterator();
-
-        System.out.println("\n4.Directores de las películas en las que actua Janet Leigh:");
-        while (it1.hasNext()) {
-            Element at = (Element) it1.next();
-            System.out.println(at.getValue());
-        }
-    }
-//     5. Nombre de las personas vivas
-
-    public static void apartado5(Document doc) {
-
-        XPathExpression<Element> xpath1 = XPathFactory.instance().compile("//personas/persona[not (fechas/@fallecimiento)]/nombre", Filters.element());
-        List<Element> elemento1 = xpath1.evaluate(doc);
-        Iterator it1 = elemento1.iterator();
-
-        System.out.println("\n5.Nombre de las personas vivas:");
-        while (it1.hasNext()) {
-            Element at = (Element) it1.next();
-            System.out.println(at.getValue());
-        }
-    }
-//     6. Nombre de las personas que vivieron toda su vida en el siglo XX
-
-    public static void apartado6(Document doc) {
-
-        XPathExpression<Element> xpath1 = XPathFactory.instance().compile("//personas/persona[fechas/@nacimiento>'1901' and fechas/@fallecimiento<'2001']/nombre", Filters.element());
-        List<Element> elemento1 = xpath1.evaluate(doc);
-        Iterator it1 = elemento1.iterator();
-
-        System.out.println("\n6.Nombre de las personas que vivieron toda su vida en el siglo XX:");
-        while (it1.hasNext()) {
-            Element at = (Element) it1.next();
-            System.out.println(at.getValue());
-        }
-    }
-//     7. Fecha de nacimiento de los actores de la película "Tres en un sofá"
-
-    public static void apartado7(Document doc) {
-
-        // no consigo imprimir la fecha (de nacimiento, que es un atributo) pero si el nombre
-        XPathExpression<Element> xpath1 = XPathFactory.instance().compile("//persona[nombre=//pelicula[titulo='Tres en un sofa']/actor]/fechas/@nacimiento", Filters.element());
-        List<Element> elemento1 = xpath1.evaluate(doc);
-        Iterator it1 = elemento1.iterator();
-
-        System.out.println("\n7.Fecha de nacimiento de los actores de la película \"Tres en un sofá\":");
-        while (it1.hasNext()) {
-            Element at = (Element) it1.next();
-            System.out.println(at.getValue());
+        raiz.addContent(contenido);
+        try {
+            // Generamos el fichero XML
+            //Herramientas.escribirXMLpantalla(doc);
+            Herramientas.escribirXMLmachacar(doc, "practicaEscritura\\ejercicio5\\pedidos");
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
 }

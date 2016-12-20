@@ -28,19 +28,30 @@ public class Principal {
         SAXBuilder b = new SAXBuilder();
         Document doc = b.build(new FileInputStream("cine.xml"));
         
-        System.out.println("Nombre de las personas de sexo femenino: ");
+        System.out.println("1. Nombre de las personas de sexo femenino: ");
         Herramientas.xpath(doc, "//personas/persona[@sexo='mujer']/nombre");
-//        Metodos.apartado1(doc);
-//        Metodos.apartado1_NoAbreviado(doc);
-//        Metodos.apartado2(doc);
-//        Metodos.apartado2_NoAbreviada(doc);
-//        Metodos.apartado3(doc);
-//        Metodos.apartado3_NoAbreviada(doc);
-//        Metodos.apartado4(doc);
-//        Metodos.apartado4_NoAbreviada(doc);
-//        Metodos.apartado5(doc);
-//        Metodos.apartado6(doc);
-//        Metodos.apartado7(doc);
+        //Herramientas.xpath(doc, "//child::peliculas/child::pelicula/child::titulo");
+        
+        System.out.println("2. Títulos de las películas en las que Anthony Perkins es actor:");
+        Herramientas.xpath(doc, "//peliculas/pelicula[actor='Anthony Perkins']/titulo");
+        //Herramientas.xpath(doc, "//child::peliculas/child::pelicula[child::actor='Anthony Perkins']/child::titulo");
+        
+        System.out.println("3. Nombre de las personas de sexo femenino:");
+        Herramientas.xpath(doc, "//personas/persona[@sexo='mujer']/nombre");
+        //Herramientas.xpath(doc, "//child::personas/child::persona[@sexo='mujer']/child::nombre");
+        
+        System.out.println("4. Directores de las películas en las que actua Janet Leigh:");
+        Herramientas.xpath(doc, "//peliculas/pelicula[actor='Janet Leigh']/director");
+        //Herramientas.xpath(doc, "//child::peliculas/child::pelicula[actor='Janet Leigh']/child::director");
+        
+        System.out.println("5. Nombre de las personas vivas:");
+        Herramientas.xpath(doc, "//personas/persona[not (fechas/@fallecimiento)]/nombre");
+        
+        System.out.println("6. Nombre de las personas que vivieron toda su vida en el siglo XX:");
+        Herramientas.xpath(doc, "//personas/persona[fechas/@nacimiento>'1901' and fechas/@fallecimiento<'2001']/nombre");
+        
+        System.out.println("7. Fecha de nacimiento de los actores de la película \"Tres en un sofá\":");
+        Herramientas.xpath(doc, "//persona[nombre=//pelicula[titulo='Tres en un sofa']/actor]/fechas/@nacimiento");
     }
     
 }
