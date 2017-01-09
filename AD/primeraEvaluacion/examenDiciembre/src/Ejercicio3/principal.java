@@ -40,9 +40,9 @@ public class principal {
 
         //Herramientas.xpath(doc, "//hora[@numsala=//cine[@ubicacion='madrid']/hora/@numsala]/../direccion");
         
-        System.out.println("4. Información de los actores que tengan la misma nacionalidad que el actor protagonista de la película el Hobbit:");
-        Herramientas.xpath(doc, "//actor[@nacionalidad=//pelicula/reparto/actor[nombre='Martin Freeman']/titulo]/*");
-        Herramientas.xpath(doc, "//actor[@nacionalidad=//pelicula/reparto/actor]/*");
+        System.out.println("4. Información de los actores que tengan la misma nacionalidad que "
+                + "el actor protagonista  de  la película el Hobbit:");
+        Herramientas.xpath(doc, "//actor[@nacionalidad=//pelicula/reparto/actor[nombre='Martin Freeman']]");
 
     }
 

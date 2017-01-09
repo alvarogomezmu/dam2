@@ -1,7 +1,0 @@
-<empresa id="100">
-	<nombre>EmpresaAnonima S.A</nombre>
-	<planta>Primera</planta>
-	<personal DNI="1"/>
-	<capital cantidad="100000" tipo="socidad anonima"/>
-</empresa>
-	

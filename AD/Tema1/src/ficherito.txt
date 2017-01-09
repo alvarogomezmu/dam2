@@ -1,3 +1,0 @@
-100#persiana
-#200#sofa
-#80#vida
