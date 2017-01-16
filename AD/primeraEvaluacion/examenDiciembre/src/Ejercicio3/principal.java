@@ -32,14 +32,12 @@ public class principal {
             ex.printStackTrace();
         }
 
-        //System.out.println("1. Nombre de las Películas  que  se están proyectando en más de dos cines: ");
-        //Herramientas.xpath(doc, "//pelicula/cines[count(cine)>2]/../titulo");
-        //System.out.println("2. Nombre de los directores que han dirigido películas con algún actor de UK: ");
-        //Herramientas.xpath(doc, "//pelicula/reparto/actor[@nacionalidad='uk']//../../director");
-        //System.out.println("3. Mostrar  la dirección de los cines que tengan  el mismo numsala que el del cine ubicado en Madrid: ");
-
-        //Herramientas.xpath(doc, "//hora[@numsala=//cine[@ubicacion='madrid']/hora/@numsala]/../direccion");
-        
+        System.out.println("1. Nombre de las Películas  que  se están proyectando en más de dos cines: ");
+        Herramientas.xpath(doc, "//pelicula/cines[count(cine)>2]/../titulo");
+        System.out.println("2. Nombre de los directores que han dirigido películas con algún actor de UK: ");
+        Herramientas.xpath(doc, "//pelicula/reparto/actor[@nacionalidad='uk']//../../director");
+        System.out.println("3. Mostrar  la dirección de los cines que tengan  el mismo numsala que el del cine ubicado en Madrid: ");
+        Herramientas.xpath(doc, "//hora[@numsala=//cine[@ubicacion='madrid']/hora/@numsala]/../direccion");
         System.out.println("4. Información de los actores que tengan la misma nacionalidad que "
                 + "el actor protagonista  de  la película el Hobbit:");
         Herramientas.xpath(doc, "//actor[@nacionalidad=//pelicula/reparto/actor[nombre='Martin Freeman']]");
