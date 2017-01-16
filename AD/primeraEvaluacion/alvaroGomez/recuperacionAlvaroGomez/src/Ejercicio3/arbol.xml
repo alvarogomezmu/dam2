@@ -1,0 +1,32 @@
+<Empresa nif="23456789B">
+<nombre>Empresa SA </nombre>
+<informacion_personal>
+		<nombre>Susana</nombre>
+		<apellidos>Leon</apellidos>
+		<dni>30959479</dni>
+		<telefono>957345623</telefono>
+		<lugar_nacimiento>Barcelona</lugar_nacimiento>
+		<fecha_nacimiento>6-2-80</fecha_nacimiento>
+</informacion_personal>
+<informacion_personal>
+		<nombre>Carlos</nombre>
+		<apellidos>Garcia</apellidos>
+		<dni>30954567</dni>
+		<telefono>957345621</telefono>
+		<lugar_nacimiento>Madrid</lugar_nacimiento>
+		<fecha_nacimiento>6-4-56</fecha_nacimiento>
+</informacion_personal>
+<datos_academicos dni="30954567">
+		<cursos>C++</cursos>
+		<cursos>Ada</cursos>
+		<titulos>Mecanografia</titulos>
+		<precio_cursos>2000</precio_cursos>
+</datos_academicos>
+<datos_academicos dni="30959479">
+		<cursos>C++</cursos>
+		<cursos>Java</cursos>
+		<cursos>Android</cursos>
+		<titulos>MCSA</titulos>
+		<precio_cursos>3000</precio_cursos>
+</datos_academicos>
+</Empresa>
