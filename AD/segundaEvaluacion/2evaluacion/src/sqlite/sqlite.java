@@ -26,9 +26,9 @@ public class sqlite {
             System.exit(0);
         }
         System.out.println("Abierta la BBDD");
-        
+
         createNewTable();
-        insertarDatos();
+        //insertarDatos();
 
     }
 
@@ -40,13 +40,28 @@ public class sqlite {
         // SQLite connection string
         String url = "jdbc:sqlite:C:\\sqlite3\\curso.db";
 
-        
         // SQL statement for creating a new table
         String sql = "CREATE TABLE IF NOT EXISTS ejemplo (\n"
                 + "	id integer PRIMARY KEY,\n"
                 + "	nom text NOT NULL,\n"
                 + "	sueldo integer\n"
                 + ");";
+
+        try (Connection conn = DriverManager.getConnection(url);
+                Statement stmt = conn.createStatement()) {
+            // create a new table
+            stmt.execute(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private static void insertarDatos() {
+        // SQLite connection string
+        String url = "jdbc:sqlite:C:\\sqlite3\\curso.db";
+
+        // SQL statement for creating a new table
+        String sql = "INSERT INTO Departamento(DEPARTMENT_ID, DEPARTMENT_NAME, LOCATION_ID) VALUES(1),('Administracion'),(11);";
 
         try (Connection conn = DriverManager.getConnection(url);
                 Statement stmt = conn.createStatement()) {
