@@ -5,11 +5,41 @@
  */
 package Herramientas;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author AlumnoT
  */
 public class Herramientas {
     // Metodo para conectarnos a una BBDD sqlite
-    
+
+    private static Connection connectSQLite(String ruta) {
+        Connection c = null;
+
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:C:\\sqlite3\\" + ruta + ".db");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error al iniciar la DB D:");
+        }
+        return c;
+    }
+
 }
