@@ -27,9 +27,9 @@ import java.util.logging.Logger;
  * @author AlumnoT
  */
 public class Herramientas {
-    // Metodo para conectarnos a una BBDD sqlite
 
-    private static Connection connectSQLite(String ruta) {
+    // Metodo para conectarnos a una BBDD sqlite
+    public static Connection connectSQLite(String ruta) {
         Connection c = null;
 
         try {
@@ -40,6 +40,18 @@ public class Herramientas {
             System.out.println("Error al iniciar la DB D:");
         }
         return c;
+    }
+
+    public static void selectSQLite(String ruta, String consulta, float f) {
+        try {
+            PreparedStatement sel = connectSQLite(ruta).prepareStatement(consulta);
+
+            //repetición para mostrar campos
+            r1.close();
+            sel.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
 }

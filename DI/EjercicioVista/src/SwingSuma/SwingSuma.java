@@ -29,7 +29,7 @@ public class SwingSuma extends JFrame {
 
         createLayout(lbl1, loginField, lbl2, passField, submitButton);
 
-        setTitle("Login");
+        setTitle("Login");  
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -48,7 +48,7 @@ public class SwingSuma extends JFrame {
             char[] passwd = passField.getPassword();
 
             if (!login.isEmpty() && passwd.length != 0) {
-                System.out.format("User %s entered %s password%n",
+                System.out.format("Usuario %s \n La contraseña que ha introducido es %s password%n",
                         login, String.valueOf(passwd));
             }
 
