@@ -1,26 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Herramientas;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.*;
+import java.sql.*;
+import java.util.*;
 
 /**
  *
@@ -41,17 +23,4 @@ public class Herramientas {
         }
         return c;
     }
-
-    public static void selectSQLite(String ruta, String consulta, float f) {
-        try {
-            PreparedStatement sel = connectSQLite(ruta).prepareStatement(consulta);
-
-            //repetición para mostrar campos
-            r1.close();
-            sel.close();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
-
 }
