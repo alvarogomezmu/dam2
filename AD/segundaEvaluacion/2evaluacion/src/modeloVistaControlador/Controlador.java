@@ -8,6 +8,7 @@ import java.sql.*;
  *
  * @author AlumnoT
  */
+
 public class Controlador implements ActionListener {
 
     Vista view;
