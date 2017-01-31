@@ -3,26 +3,55 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package JTabla;
+package TareaLibros;
 
-import java.awt.FlowLayout;
-import javax.swing.JLabel;
+import JTabla.MainTuto;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author AlumnoT
  */
-public class NewJFrame1 extends javax.swing.JFrame {
+public class View extends JFrame {
 
     /**
-     * Creates new form NewJFrame1
+     * Creates new form Vista
      */
-    public NewJFrame1() {
+    public View() {
         initComponents();
-        setTitle("ejejejejemplo");
-        setLayout(new FlowLayout());
-        
-        
+        Object[][] datos = {
+            {"Juan", new Integer(25), new Boolean(false)},
+            {"Sonia", new Integer(33), new Boolean(true)},
+            {"Pedro", new Integer(42), new Boolean(false)},};
+        String[] columnNames = {"Titulo", "Autor", "NumPas",};
+        DefaultTableModel dtm = new DefaultTableModel(datos, columnNames);
+        final JTable table = new JTable(dtm);
+
+        // Agregar nueva columna
+        String[] columnaNueva1 = {"vago", "diestro", "normal",};
+        dtm.addColumn("Tipo", columnaNueva1);
+
+        // Agregar nueva fila
+        Object[] newRow = {"Maria", new Integer(55), new Boolean(false)};
+        dtm.addRow(newRow);
+
+        // Modificar celda especifica
+        dtm.setValueAt("XXX", 3, 3); // Row/Col
+        table.setPreferredScrollableViewportSize(new Dimension(250, 100));
+        JScrollPane scrollPane = new JScrollPane(table);
+        getContentPane().add(scrollPane, BorderLayout.CENTER);
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
     }
 
     /**
@@ -67,24 +96,26 @@ public class NewJFrame1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NewJFrame1().setVisible(true);
-            }
-        });
+        MainTuto frame = new MainTuto();
+
+        frame.pack();
+
+        frame.setVisible(true);
     }
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-}
+
