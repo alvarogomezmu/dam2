@@ -27,6 +27,7 @@ public class Vista extends javax.swing.JFrame {
 
     JButton btn = new JButton("Mostrar");
     JButton btn2 = new JButton("Buscar");
+    JButton btn3 = new JButton("Borrar");
 
     /**
      * Creates new form Vista
@@ -79,6 +80,7 @@ public class Vista extends javax.swing.JFrame {
         pane2.add(txt);
         pane2.add(sp2);
         pane2.add(btn2);
+        pane2.add(btn3);
         pane2.setBorder(titled2);
 
         /* VENTANA */

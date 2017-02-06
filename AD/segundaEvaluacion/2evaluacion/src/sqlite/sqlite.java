@@ -19,7 +19,6 @@ public class sqlite {
         Connection c = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            //c = DriverManager.getConnection("jdbc:sqlite:C\\sqlite3\\test.db");
             c = DriverManager.getConnection("jdbc:sqlite:C:\\sqlite3\\curso.db");
         } catch (Exception e) {
             System.out.println("error de conexion");
