@@ -23,4 +23,24 @@ public class Herramientas {
         }
         return c;
     }
+
+    public static Connection connectORACLE(String user, String pass) {
+        String host = "localhost"; // O ip como "192.168.35.185"
+        String puerto = "1521";
+        String sid = "XE";
+        String driver = "oracle.jdbc.driver.OracleDriver";
+        String ulrjdbc = "jdbc:oracle:thin:" + user + "/" + pass + "@" + host + ":" + puerto + ":" + sid;
+
+        Connection c = null;
+
+        try {
+            Class.forName(driver).newInstance();
+            c = DriverManager.getConnection(ulrjdbc);
+            System.out.println("BD Abierta con exito");
+        } catch (Exception e) {
+            System.out.println("Error al abrir BD");
+            e.printStackTrace();
+        }
+        return c;
+    }
 }
