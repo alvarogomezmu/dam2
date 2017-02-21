@@ -1,4 +1,6 @@
-1.Crear un metodo (proc o func) que muestre a las empleadas que ganen un sueldo superior a 1.000€ y que hayan (o no) realizado repartos del articulo pasado por parametro.
+1.Crear un metodo (proc o func) que muestre a las empleadas que ganen un sueldo superior a 1.000€ y 
+que hayan (o no) realizado repartos del articulo pasado por parametro.
+
 2.Crear un metodo (proc o func) que muestre el nombre de las categorias que no tengan ningun articulo asociado.
 
 CREATE TABLE CATEGORIAS (	
