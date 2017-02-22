@@ -85,6 +85,9 @@ public class HerramientasTarea2 {
         String Empleado1 = "INSERT INTO Empleados VALUES (111, 'Rodriguez', 1.1, 1123);";
         String Empleado2 = "INSERT INTO Empleados VALUES (222, 'Gomez', 2.2, 1456);";
         String Empleado3 = "INSERT INTO Empleados VALUES (333, 'Carrasco', 3.3, 1123);";
+        String Empleado4 = "INSERT INTO Empleados VALUES (444, 'Alvarez', 4.4, 1123);";
+        String Empleado5 = "INSERT INTO Empleados VALUES (555, 'Lopez', 5.5, 1789);";
+        String Empleado6 = "INSERT INTO Empleados VALUES (666, 'Amazon', 6.6, 1456);";
 
         try (Connection conn = DriverManager.getConnection(url);
                 Statement stmt = conn.createStatement()) {
@@ -92,6 +95,9 @@ public class HerramientasTarea2 {
             stmt.execute(Empleado1);
             stmt.execute(Empleado2);
             stmt.execute(Empleado3);
+            stmt.execute(Empleado4);
+            stmt.execute(Empleado5);
+            stmt.execute(Empleado6);
             
         } catch (SQLException e) {
             System.out.println(e.getMessage());
