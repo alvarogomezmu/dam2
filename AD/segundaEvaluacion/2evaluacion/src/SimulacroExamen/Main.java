@@ -81,19 +81,17 @@ public class Main {
         Scanner teclado = new Scanner(System.in);
         //System.out.print("Introduce el numero de alumnos que quieras introducir: ");
         int total = 0;
-        
-            System.out.println("Vamos a crear dos Alumnos.");
-            System.out.println("Escriba el codigo del primer Alumno : ");
-            codigo = Integer.parseInt(br.readLine());
-            System.out.println("Escriba el nombre del primer Alumno : ");
-            nom = br.readLine();
-            System.out.println("Escriba la edad del primer Alumno : ");
-            edad = Integer.parseInt(br.readLine());
-            System.out.println("Escriba el sexo del primer Alumno : ");
-            sexo = br.readLine();
-            
 
-        
+        System.out.println("Vamos a crear dos Alumnos.");
+        System.out.println("Escriba el codigo del primer Alumno : ");
+        codigo = Integer.parseInt(br.readLine());
+        System.out.println("Escriba el nombre del primer Alumno : ");
+        nom = br.readLine();
+        System.out.println("Escriba la edad del primer Alumno : ");
+        edad = Integer.parseInt(br.readLine());
+        System.out.println("Escriba el sexo del primer Alumno : ");
+        sexo = br.readLine();
+
         String Alumno = "INSERT INTO Alumno VALUES (?,?,?,?);";
 
         //System.out.println("Los datos del primer alumno son: " + "codigo:" + codigo + " nombre:" + nom + " edad:" + edad + " sexo:" + sexo);
@@ -106,13 +104,13 @@ public class Main {
                 Statement stmt = conn.createStatement()) {
             // inserccion de datos
             String sql = "INSERT INTO Alumno VALUES(?,?,?,?)";
-                    sp = BBDD.getConexion().prepareStatement(sql);
-                    sp.setInt(1, Integer.parseInt(visto.txt2.getText()));
-                    sp.setString(2, this.visto.txt.getText());
-                    sp.setInt(3, Integer.parseInt(visto.txt2.getText()));
-                    sp.setString(4, this.visto.txt3.getText()); 
-                    int resultado = sp.executeUpdate();
-                    sp.close();
+            sp = BBDD.getConexion().prepareStatement(sql);
+            sp.setInt(1, Integer.parseInt(visto.txt2.getText()));
+            sp.setString(2, this.visto.txt.getText());
+            sp.setInt(3, Integer.parseInt(visto.txt2.getText()));
+            sp.setString(4, this.visto.txt3.getText());
+            int resultado = sp.executeUpdate();
+            sp.close();
             stmt.execute(Alumno);
 
         } catch (SQLException e) {
