@@ -4,7 +4,7 @@ import java.sql.Connection;
 
 /**
  *
- * @author Sammy Guergachi <sguergachi at gmail.com>
+ * @author Alvaro Gomez
  */
 public class Main {
 
