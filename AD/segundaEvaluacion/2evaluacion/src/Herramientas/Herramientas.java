@@ -263,7 +263,7 @@ public class Herramientas {
 //--------------------------------------------
 //--------------------------------------------
 
-    public void LLamarProcedimientoOracle(Connection c, String nombreProcedimiento) {
+    public static void LLamarProcedimientoOracle(Connection c, String nombreProcedimiento) {
         try {
             int id, max_salario;
             CallableStatement cs = c.prepareCall("{call" + nombreProcedimiento + "(?)}");
@@ -283,7 +283,7 @@ public class Herramientas {
         }
     }
 
-    public void LLamarFuncionOracle(Connection c, String nombreFuncion) {
+    public static void LLamarFuncionOracle(Connection c, String nombreFuncion) {
         try {
             CallableStatement cs = c.prepareCall("{?=call" + nombreFuncion + "}");
             cs.registerOutParameter(1, OracleTypes.CURSOR);
