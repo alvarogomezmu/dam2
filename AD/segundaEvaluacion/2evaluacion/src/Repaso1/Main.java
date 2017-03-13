@@ -1,4 +1,4 @@
-package OracleRepaso1;
+package Repaso1;
 
 import java.sql.*;
 import Herramientas.*;
@@ -25,7 +25,9 @@ public class Main {
                     + "por parámetro, nos debe mostrar los autores que han escrito 2 o más libros sobre ese tema");
             Metodos.ApartadoDos();
             // -----
-            
+            System.out.println("3. Crear un procedimiento o una función que  nos muestre el  socio más viejo que "
+                    + "haya  pedido prestado más de 1 libro");
+            Metodos.ApartadoTres();
 
         } catch (SQLException e) {
 
